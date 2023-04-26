@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gif"
+        android:layout_alignParentRight="true"
+        />
+
+    <TextView
+        android:id="@+id/time_text"
+        android:text="Возраст:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_toLeftOf="@+id/time_view">
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/time_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="16dp"
+        android:text=""
+        android:layout_marginLeft="8dp"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="8dp"
+        android:text="Имя:"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/best_time"
+        android:text="Лучшее время:"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_toLeftOf="@+id/time_view">
+    </TextView>
+
+    <TextView
+        android:id="@+id/best_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="16dp"
+        android:text="текущее"
+        android:layout_toEndOf="@+id/best_time"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="10sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        android:layout_width="180dp"
+        android:layout_height="10dp"
+        android:layout_above="@+id/textView2"
+        android:layout_alignRight="@+id/progressBar3"
+        android:paddingRight="16dp"
+        android:progressDrawable="@drawable/progress_bars"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="180dp"
+        android:layout_height="10dp"
+        android:progressDrawable="@drawable/progress_bars"
+        android:layout_above="@+id/textView3"
+        android:layout_alignRight="@+id/progressBar3"
+        android:paddingRight="16dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="180dp"
+        android:layout_height="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="10dp"
+        android:paddingRight="16dp"
+        android:progressDrawable="@drawable/progress_bars" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/progressBar3"
+        android:layout_alignLeft="@+id/progressBar3"
+        android:textSize="10dp"
+        android:textColor="@color/text"
+        android:text="Самооценка" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/progressBar2"
+        android:layout_alignLeft="@+id/progressBar3"
+        android:textSize="10dp"
+        android:textColor="@color/text"
+        android:text="Усталость от безделия" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/progressBar1"
+        android:layout_alignLeft="@+id/progressBar3"
+        android:textSize="10dp"
+        android:textColor="@color/text"
+        android:text="Голод по знаниям" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="9dp"
+        android:text="Учиться"
+        android:id="@+id/booktv"
+        android:textColor="@color/text"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="220dp"
+        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/book"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/booktv"
+        android:layout_marginBottom="-40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/book"></ImageView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="9dp"
+        android:text="Повторить пройденное"
+        android:id="@+id/Regaltv"
+        android:textColor="@color/text"
+        android:layout_below="@+id/Regal"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/Regal"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@+id/Regaltv"
+        android:background="@drawable/regal"></ImageView>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/space"
+        android:layout_marginLeft="70dp"
+        android:textSize="10dp"
+        android:textColor="@color/text"
+        android:text="Играть" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/space"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="-30dp"
+        android:background="@drawable/space"
+        android:layout_width="260dp"
+        android:layout_height="195dp"/>
+
+</RelativeLayout>

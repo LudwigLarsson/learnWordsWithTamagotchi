@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Learn words with Tamagotchi</string>
+    <string name="send">Отправить</string>
+    <string name="text">Введите имя своего питомца</string>
+    <string name="home">Имя: %1$s</string>
+</resources>
