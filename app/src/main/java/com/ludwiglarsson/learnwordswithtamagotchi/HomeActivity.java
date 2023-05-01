@@ -17,6 +17,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 
 public class HomeActivity extends AppCompatActivity {
+    protected int currentCondition = 2;
     protected boolean firstTime = true;
     protected long currentTime = 0;
     protected long bestTime = 0;
@@ -54,19 +55,12 @@ public class HomeActivity extends AppCompatActivity {
         }
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(getResources().getColor(R.color.background));
-        onChangePhotos();
+        setPhotos();
         runTimer(); //перенести в onActivityResult
         onChangeScale1();
         onChangeScale2();
-        /*DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int height = displayMetrics.heightPixels;
-        int width = displayMetrics.widthPixels;
-        TextView booktv = (TextView) findViewById(R.id.booktv);
-        booktv.getLayoutParams().= (int) Math.ceil(height * 16 / 9);
-        booktv.requestLayout();*/
         ImageView book = findViewById(R.id.book);
-        ImageView Regal = findViewById(R.id.Regal);
+        ImageView shelf = findViewById(R.id.shelf);
         GifImageView space = (GifImageView) findViewById(R.id.space);
         book.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Regal.setOnClickListener(new View.OnClickListener() {
+        shelf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, StudiedWordsActivity.class);
@@ -135,14 +129,55 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-    public void onChangePhotos() {
-        GifImageView gif = (GifImageView) findViewById(R.id.gif);
-        gif.setImageResource(R.drawable.sad22);
+    public void setPhotos() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
-        gif.getLayoutParams().width = (int) Math.ceil(height * 16 / 9);
+        int width = displayMetrics.widthPixels;
+
+        ImageView back = (ImageView) findViewById(R.id.back);
+        back.getLayoutParams().width = (int) Math.ceil(height * 16 / 9);
+        back.requestLayout();
+
+        GifImageView gif = (GifImageView) findViewById(R.id.gif);
+        gif.setImageResource(R.drawable.neutral);
+        gif.getLayoutParams().height = (int) Math.ceil(height / 2);
+        gif.getLayoutParams().width = (int) Math.ceil(height / 2 * 584 / 389);
         gif.requestLayout();
+
+        GifImageView space = (GifImageView) findViewById(R.id.space);
+        space.getLayoutParams().height = (int) Math.ceil((width - height * 16 / 9) + (height * 16 / 9 * 80 / 590) / 1.5 * 388 / 215);
+        space.getLayoutParams().width = (int) Math.ceil((width - height * 16 / 9) + (height * 16 / 9 * 80 / 590) / 1.5);
+        space.requestLayout();
+
+        ImageView table = (ImageView) findViewById(R.id.table);
+        table.getLayoutParams().height = (int) Math.ceil(width / 2 * 520 / 924);
+        table.getLayoutParams().width = (int) Math.ceil(width / 2);
+        table.requestLayout();
+
+        ImageView book = (ImageView) findViewById(R.id.book);
+        book.getLayoutParams().height = (int) Math.ceil(width / 2 * 520 / 924 / 3.5);
+        book.getLayoutParams().width = (int) Math.ceil(width / 2 * 520 / 924 / 3.5 * 508 / 326);
+        book.requestLayout();
+
+        ImageView shelf = (ImageView) findViewById(R.id.shelf);
+        shelf.getLayoutParams().height = (int) Math.ceil(height / 3.5);
+        shelf.getLayoutParams().width = (int) Math.ceil(height / 3.5 * 924 / 520);
+        shelf.requestLayout();
+    }
+    public void onChangePhotos() {
+        GifImageView gif = (GifImageView) findViewById(R.id.gif);
+        if (currentCondition == 2) {
+            //gif.setImageResource(R.drawable.neutral);
+        } else if (currentCondition == 1) {
+            //gif.setImageResource(R.drawable.neutral);
+        } else if (currentCondition == 3) {
+            //gif.setImageResource(R.drawable.neutral);
+        } else if (currentCondition == 4) {
+            //gif.setImageResource(R.drawable.neutral);
+        } else if (currentCondition == 5) {
+            //gif.setImageResource(R.drawable.neutral);
+        }
     }
     public void onChangeScale2() {
         ProgressBar progressBar2 = (ProgressBar)findViewById(R.id.progressBar2);
