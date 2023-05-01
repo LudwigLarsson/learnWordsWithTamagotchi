@@ -1,11 +1,14 @@
 package com.ludwiglarsson.learnwordswithtamagotchi;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -17,6 +20,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 
 public class HomeActivity extends AppCompatActivity {
+    public static final int REQUEST_CODE = 1;
     protected int currentCondition = 2;
     protected boolean firstTime = true;
     protected long currentTime = 0;
@@ -47,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         if (firstTime) {
             Intent intent = new Intent(HomeActivity.this, StartActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CODE);
             firstTime = false;
             runTimer(); //перенести в onActivityResult
             onChangeScale1();
@@ -195,26 +199,22 @@ public class HomeActivity extends AppCompatActivity {
         ProgressBar progressBar3 = (ProgressBar)findViewById(R.id.progressBar3);
         progressBar3.setProgress(scale3);
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE  && resultCode  == RESULT_OK) {
+            Log.d("ЬУЬ", "onActivityResult: ");
+            String name = data.getStringExtra("name");
+            TextView name_view = (TextView) findViewById(R.id.set_name);
+            name_view.setText(name);
+            name_view.requestLayout();
+        }
+    }
     public void getPoints1() {}
     public void getPoints2() {}
     public void getPoints3() {}
     public void onChangeCondition() {
     }
     public void onDie() {}
-}
 
-/*
-        1. @Override
-        protected void ActivityResultContract(int requestCode, int resultCode, Intent data) {
-            if (data == null) {
-                return;
-            }
-            String name = data.getStringExtra("name");
-            public static final NAME = name;
-        }
-        2. Как поместить переменную в строковый ресурс?
-        String msg = getResources().getString(R.string.home, NAME);
-        3. Когда пытаюсь убрать панель действий, приложение вылетает
-        android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
-        View decorView = getWindow().getDecorView();
-        */
+}

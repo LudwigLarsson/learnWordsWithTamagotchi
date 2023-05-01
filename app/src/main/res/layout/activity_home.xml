@@ -63,15 +63,26 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="8sp"
         android:text="Имя:"
+        android:textColor="#393737"
+        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/set_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="44sp"
+        android:text=""
         android:textColor="#393737"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/best_time"
         android:text="Лучшее время:"
-        android:textColor="#393737"
+        android:textColor="@color/smallText"
         android:layout_width="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_height="wrap_content"
@@ -87,7 +98,7 @@
         android:layout_alignParentRight="true"
         android:paddingRight="16dp"
         android:text="текущее"
-        android:textColor="#393737"
+        android:textColor="@color/smallText"
         android:layout_toEndOf="@+id/best_time"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="8dp"

@@ -49,7 +49,7 @@
             android:name=".StartActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="false"
-            android:label="Start"
+            android:label=""
             android:screenOrientation="landscape"
             android:theme="@style/StartActivity">
             <meta-data

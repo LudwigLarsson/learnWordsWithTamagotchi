@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.content.pm.ActivityInfo;
@@ -17,13 +20,23 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-    }
-    public void onSendName(View view) {
-        EditText nameView = (EditText)findViewById(R.id.name);
-        String nameText = nameView.getText().toString();
-        Intent intent = new Intent();
-        intent.putExtra("name", nameText);
-        setResult(RESULT_OK, intent);
-        finish();
+        Dialog dialog = new Dialog(this, android.R.style.Theme_Dialog);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.activity_start);
+        View v = getWindow().getDecorView();
+        v.setBackgroundResource(android.R.color.transparent);
+
+        Button b = (Button) findViewById(R.id.send);
+        b.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText nameView = (EditText) findViewById(R.id.name);
+                String nameText = nameView.getText().toString();
+                Intent intent = new Intent();
+                intent.putExtra("name", nameText);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
     }
 }
