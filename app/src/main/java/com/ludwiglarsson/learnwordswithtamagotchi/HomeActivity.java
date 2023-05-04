@@ -21,6 +21,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class HomeActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 1;
+    protected String name = "";
     protected int currentCondition = 2;
     protected boolean firstTime = true;
     protected long currentTime = 0;
@@ -48,6 +49,7 @@ public class HomeActivity extends AppCompatActivity {
             scale3 = savedInstanceState.getInt("scale3");
             timeReduceScale1 = savedInstanceState.getInt("timeReduceScale1");
             timeReduceScale2 = savedInstanceState.getInt("timeReduceScale2");
+            name = savedInstanceState.getString("name");
         }
         if (firstTime) {
             Intent intent = new Intent(HomeActivity.this, StartActivity.class);
@@ -102,6 +104,7 @@ public class HomeActivity extends AppCompatActivity {
         savedInstanceState.putInt("scale3", scale3);
         savedInstanceState.putInt("timeReduceScale1", timeReduceScale1);
         savedInstanceState.putInt("timeReduceScale2", timeReduceScale2);
+        savedInstanceState.putString("name", name);
     }
     private void runTimer() {
         final TextView timeView = (TextView)findViewById(R.id.time_view);
@@ -203,11 +206,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE  && resultCode  == RESULT_OK) {
-            Log.d("ЬУЬ", "onActivityResult: ");
-            String name = data.getStringExtra("name");
+            name = data.getStringExtra("name");
             TextView name_view = (TextView) findViewById(R.id.set_name);
             name_view.setText(name);
-            name_view.requestLayout();
         }
     }
     public void getPoints1() {}
