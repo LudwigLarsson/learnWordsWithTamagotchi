@@ -1,21 +1,19 @@
 package com.ludwiglarsson.learnwordswithtamagotchi;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.content.pm.ActivityInfo;
 
-import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
 
@@ -35,11 +33,16 @@ public class HomeActivity extends AppCompatActivity {
     protected final long condition2 = 150;
     protected final long condition3 = 75;
     protected final long condition4 = 0;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+       // preferences = getPreferences(MODE_PRIVATE);
+       // firstTime = preferences.getBoolean("firstTime", true);
         if (savedInstanceState != null) {
             currentTime = savedInstanceState.getLong("currentTime");
             bestTime = savedInstanceState.getLong("bestTime");
@@ -49,20 +52,19 @@ public class HomeActivity extends AppCompatActivity {
             scale3 = savedInstanceState.getInt("scale3");
             timeReduceScale1 = savedInstanceState.getInt("timeReduceScale1");
             timeReduceScale2 = savedInstanceState.getInt("timeReduceScale2");
-            name = savedInstanceState.getString("name");
         }
         if (firstTime) {
             Intent intent = new Intent(HomeActivity.this, StartActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
             firstTime = false;
-            runTimer(); //перенести в onActivityResult
-            onChangeScale1();
-            onChangeScale2();
+            /*preferences = getPreferences(MODE_PRIVATE);
+            editor = preferences.edit();
+            editor.putBoolean("firstTime", false);
+            editor.commit();*/
         }
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(getResources().getColor(R.color.background));
         setPhotos();
-        runTimer(); //перенести в onActivityResult
         onChangeScale1();
         onChangeScale2();
         ImageView book = findViewById(R.id.book);
@@ -91,8 +93,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
-
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -104,8 +104,8 @@ public class HomeActivity extends AppCompatActivity {
         savedInstanceState.putInt("scale3", scale3);
         savedInstanceState.putInt("timeReduceScale1", timeReduceScale1);
         savedInstanceState.putInt("timeReduceScale2", timeReduceScale2);
-        savedInstanceState.putString("name", name);
     }
+
     private void runTimer() {
         final TextView timeView = (TextView)findViewById(R.id.time_view);
         final Handler handler = new Handler();
@@ -209,6 +209,11 @@ public class HomeActivity extends AppCompatActivity {
             name = data.getStringExtra("name");
             TextView name_view = (TextView) findViewById(R.id.set_name);
             name_view.setText(name);
+            preferences = getPreferences(MODE_PRIVATE);
+            editor = preferences.edit();
+            editor.putString(name, name_view.getText().toString());
+            editor.commit();
+            runTimer();
         }
     }
     public void getPoints1() {}
@@ -219,3 +224,5 @@ public class HomeActivity extends AppCompatActivity {
     public void onDie() {}
 
 }
+
+// Проблемы: сохранение данных; HomeActivity из говна и палок; секундомер - ?; доделать методы со шкалами, хранением лучшего времени, смерти.
