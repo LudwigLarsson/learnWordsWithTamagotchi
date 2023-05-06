@@ -1,4 +1,4 @@
-package com.ludwiglarsson.learnwordswithtamagotchi;
+package com.ludwiglarsson.learnwordswithtamagotchi.data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -21,7 +21,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 + Util.KEY_NAME + " TEXT, "
                 + Util.KEY_DESCRIPTION + " TEXT, "
                 + Util.KEY_HINTS + " TEXT, "
-                + Util.KEY_USAGE + " INTEGER " + " );";
+                + Util.KEY_USAGE + " INTEGER, "
+                + Util.KEY_PHOTO + " TEXT, "
+                + Util.KEY_CATEGORY + " TEXT " + " );";
 
         sqLiteDatabase.execSQL(CREATE_PRODUCTS_TABLE);
     }
@@ -39,6 +41,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         contentValues.put(Util.KEY_DESCRIPTION, word.getDescription());
         contentValues.put(Util.KEY_HINTS, word.getHints());
         contentValues.put(Util.KEY_USAGE, 0);
+        contentValues.put(Util.KEY_PHOTO, word.getPhoto());
+        contentValues.put(Util.KEY_CATEGORY, word.getCategory());
 
         db.insert(Util.TABLE_NAME, null, contentValues);
         db.close();
@@ -46,11 +50,11 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     public Words getWord(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(Util.TABLE_NAME, new String[]{Util.KEY_ID, Util.KEY_NAME, Util.KEY_DESCRIPTION, Util.KEY_HINTS, Util.KEY_USAGE},
+        Cursor cursor = db.query(Util.TABLE_NAME, new String[]{Util.KEY_ID, Util.KEY_NAME, Util.KEY_DESCRIPTION, Util.KEY_HINTS, Util.KEY_USAGE, Util.KEY_PHOTO, Util.KEY_CATEGORY},
                 Util.KEY_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
         while (cursor != null && cursor.moveToNext()) {
             Words words = new Words(Integer.parseInt(cursor.getString(0)),
-                    cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4));
+                    cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5), cursor.getString(6));
             cursor.close();
             return words;
         }
@@ -75,6 +79,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 words.setDescription(cursor.getString(2));
                 words.setHints(cursor.getString(3));
                 words.setUsage(cursor.getInt(4));
+                words.setPhoto(cursor.getString(5));
+                words.setCategory(cursor.getString(6));
                 wordList.add(words);
             } while (cursor.moveToNext());
         }
@@ -89,6 +95,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         contentValues.put(Util.KEY_DESCRIPTION, word.getDescription());
         contentValues.put(Util.KEY_HINTS, word.getHints());
         contentValues.put(Util.KEY_USAGE, 1);
+        contentValues.put(Util.KEY_HINTS, word.getPhoto());
+        contentValues.put(Util.KEY_CATEGORY, word.getCategory());
         return db.update(Util.TABLE_NAME, contentValues, Util.KEY_ID + "=?", new String[]{String.valueOf(id)});
     }
 }

@@ -1,34 +1,40 @@
-package com.ludwiglarsson.learnwordswithtamagotchi;
+package com.ludwiglarsson.learnwordswithtamagotchi.data;
 
 public class Words {
     private int id;
     private String name;
     private String description;
     private String hints;
+    private String photo;
+    private String category;
 
     private int usage;
 
-    public Words(int id, String name, String description, String hints, int usage) {
+    public Words(int id, String name, String description, String hints, int usage, String photo, String category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.hints = hints;
         this.usage = usage;
+        this.photo = photo;
+        this.category = category;
     }
-    public Words(String name, String description, String hints, int usage) {
+    public Words(String name, String description, String hints, int usage, String photo, String category) {
         this.name = name;
         this.description = description;
         this.hints = hints;
         this.usage = usage;
+        this.photo = photo;
+        this.category = category;
     }
-    public Words(String name, String description, String hints) {
+    public Words(String name, String description, String hints, String photo, String category) {
         this.name = name;
         this.description = description;
         this.hints = hints;
+        this.photo = photo;
+        this.category = category;
     }
-    public Words() {
-
-    }
+    public Words() {}
 
     public int getId() {
         return id;
@@ -57,5 +63,14 @@ public class Words {
     }
     public void setUsage(int usage) {
         this.usage = usage;
+    }
+    public String getPhoto(){return photo;}
+
+    public void setPhoto(String photo){this.photo = photo;}
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

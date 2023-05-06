@@ -1,4 +1,4 @@
-package com.ludwiglarsson.learnwordswithtamagotchi;
+package com.ludwiglarsson.learnwordswithtamagotchi.data;
 
 public class Util {
     public static final int DATABASE_VERSION = 1;
@@ -10,4 +10,6 @@ public class Util {
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_HINTS = "hints";
     public static final String KEY_USAGE = "usage";
+    public static final String KEY_PHOTO = "photo";
+    public static final String KEY_CATEGORY = "category";
 }

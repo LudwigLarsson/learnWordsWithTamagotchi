@@ -13,7 +13,28 @@
         android:theme="@style/Theme.LearnWordsWithTamagotchi"
         tools:targetApi="31">
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.PermutationActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.GuessActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.GallowsActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".StudiedWordsActivity"
+            android:name=".activities.StudiedWordsActivity"
             android:exported="false"
             android:label="Choose Word">
             <meta-data
@@ -30,7 +51,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".GameListActivity"
+            android:name=".activities.GameListActivity"
             android:exported="false"
             android:label="choose Game">
             <meta-data
@@ -38,7 +59,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".CategoryListActivity"
+            android:name=".activities.CategoryListActivity"
             android:exported="false"
             android:label="Choose Category">
             <meta-data
@@ -46,7 +67,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".StartActivity"
+            android:name=".activities.StartActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="false"
             android:label=""

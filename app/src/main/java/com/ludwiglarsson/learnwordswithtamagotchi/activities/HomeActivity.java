@@ -1,4 +1,4 @@
-package com.ludwiglarsson.learnwordswithtamagotchi;
+package com.ludwiglarsson.learnwordswithtamagotchi.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,13 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.content.pm.ActivityInfo;
+
+import com.ludwiglarsson.learnwordswithtamagotchi.R;
 
 import pl.droidsonroids.gif.GifImageView;
 

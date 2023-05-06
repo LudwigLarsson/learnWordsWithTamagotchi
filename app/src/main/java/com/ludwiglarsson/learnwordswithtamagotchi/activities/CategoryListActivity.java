@@ -1,8 +1,10 @@
-package com.ludwiglarsson.learnwordswithtamagotchi;
+package com.ludwiglarsson.learnwordswithtamagotchi.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.ludwiglarsson.learnwordswithtamagotchi.R;
 
 public class CategoryListActivity extends AppCompatActivity {
 

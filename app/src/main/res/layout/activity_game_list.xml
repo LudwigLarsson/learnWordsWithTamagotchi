@@ -4,13 +4,59 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameListActivity">
+    android:background="@color/background"
+    tools:context=".activities.GameListActivity">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gif"
-        android:adjustViewBounds="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/sad22" />
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/game1"
+            android:layout_width="180sp"
+            android:layout_height="180sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40sp"
+            android:src="@drawable/s"
+            app:riv_corner_radius="20dp" />
+
+        <TextView
+            android:layout_width="180sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/game1"
+            android:layout_marginLeft="40sp"
+            android:text="Это программа сдохни или умри">
+        </TextView>
+        <TextView
+            android:layout_width="180sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/game2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40sp"
+            android:text="Угадай слово">
+        </TextView>
+        <TextView
+            android:layout_width="180sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/game3"
+            android:layout_marginRight="40sp"
+            android:layout_alignParentRight="true"
+            android:text="Перестановки">
+        </TextView>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/game2"
+            android:layout_width="180sp"
+            android:layout_height="180sp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/s"
+            app:riv_corner_radius="20dp"/>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/game3"
+            android:layout_width="180sp"
+            android:layout_height="180sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40sp"
+            android:src="@drawable/s"
+            app:riv_corner_radius="20dp"/>
+
 
 </RelativeLayout>
