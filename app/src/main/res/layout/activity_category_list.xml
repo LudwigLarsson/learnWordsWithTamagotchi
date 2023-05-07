@@ -1,9 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategotyListActivity">
+    android:background="@color/background"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/plants"
+                android:layout_width="300sp"
+                android:layout_height="200sp"
+                android:layout_gravity="center"
+                android:src="@drawable/s"
+                android:layout_marginRight="20sp"
+                android:layout_marginLeft="20sp"
+                app:riv_corner_radius="20dp" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/plants"
+                android:layout_below="@+id/plants"
+                android:text="Растения">
+            </TextView>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/animals"
+                android:layout_width="300sp"
+                android:layout_height="200sp"
+                android:layout_marginRight="20sp"
+                android:layout_gravity="center"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/s"
+                app:riv_corner_radius="20dp" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/animals"
+                android:layout_below="@+id/plants"
+                android:text="Животные">
+            </TextView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/space"
+                android:layout_width="300sp"
+                android:layout_height="200sp"
+                android:layout_marginLeft="20sp"
+                android:layout_gravity="left"
+                android:layout_marginRight="20sp"
+                android:src="@drawable/s"
+                app:riv_corner_radius="20dp" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/space"
+                android:layout_below="@+id/space"
+                android:text="Космос">
+            </TextView>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/architecture"
+                android:layout_width="300sp"
+                android:layout_height="200sp"
+                android:layout_marginRight="20sp"
+                android:layout_gravity="right"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/s"
+                app:riv_corner_radius="20dp" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/architecture"
+                android:layout_below="@+id/architecture"
+                android:text="Архитектура"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/professions"
+                android:layout_width="300sp"
+                android:layout_height="200sp"
+                android:layout_marginLeft="20sp"
+                android:layout_gravity="left"
+                android:layout_marginRight="20sp"
+                android:src="@drawable/s"
+                app:riv_corner_radius="20dp" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/professions"
+                android:layout_below="@+id/professions"
+                android:text="Профессии"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/inventions"
+                android:layout_width="300sp"
+                android:layout_height="200sp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20sp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/s"
+                app:riv_corner_radius="20dp" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/inventions"
+                android:layout_below="@+id/inventions"
+                android:text="Изобретения"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

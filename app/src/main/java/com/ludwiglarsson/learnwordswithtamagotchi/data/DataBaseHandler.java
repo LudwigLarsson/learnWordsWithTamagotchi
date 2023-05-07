@@ -3,10 +3,12 @@ package com.ludwiglarsson.learnwordswithtamagotchi.data;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
 
@@ -48,7 +50,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Words getWord(int id) {
+    public Words getWord(long id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(Util.TABLE_NAME, new String[]{Util.KEY_ID, Util.KEY_NAME, Util.KEY_DESCRIPTION, Util.KEY_HINTS, Util.KEY_USAGE, Util.KEY_PHOTO, Util.KEY_CATEGORY},
                 Util.KEY_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
@@ -62,6 +64,13 @@ public class DataBaseHandler extends SQLiteOpenHelper {
             cursor.close();
         }
         return null;
+    }
+
+    public Words getRandomWord() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        long numRows = DatabaseUtils.queryNumEntries(db, "words");
+        long randomNum = ThreadLocalRandom.current().nextLong(0, numRows);
+        return getWord(randomNum);
     }
 
     public ArrayList<Words> getAllWords() {

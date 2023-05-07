@@ -27,7 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private Context context;
     private int counter = 0;
 
-    public RecyclerViewAdapter(Context context, ArrayList<Words> products) {
+    public RecyclerViewAdapter(Context context, ArrayList<Words> words) {
         this.inflater = LayoutInflater.from(context);
         this.words = words;
         this.context = context;

@@ -14,7 +14,6 @@ public class GameListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_list);
         ImageView one = (ImageView) findViewById(R.id.game1);
