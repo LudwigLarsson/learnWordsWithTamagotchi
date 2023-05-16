@@ -37,4 +37,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() { //чтобы пользователь не смог нажать кнопочку "назад" и не сломал мне приложение, хихи
+    }
 }

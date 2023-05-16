@@ -21,10 +21,10 @@ public class NewWordActivity extends AppCompatActivity {
         if (extras != null) {
             String category = extras.getString("category");
         }*/
-        /*DataBaseHandler bd = new DataBaseHandler(this);
+        DataBaseHandler bd = new DataBaseHandler(this);
         Words word = (Words) bd.getRandomWord();
         String name = word.getName();
         String description = word.getDescription();
-        String photo = word.getPhoto();*/
+        String photo = word.getPhoto();
     }
 }

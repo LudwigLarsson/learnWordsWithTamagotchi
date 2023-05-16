@@ -7,7 +7,10 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
@@ -50,7 +53,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Words getWord(long id) {
+    public Words getWord(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(Util.TABLE_NAME, new String[]{Util.KEY_ID, Util.KEY_NAME, Util.KEY_DESCRIPTION, Util.KEY_HINTS, Util.KEY_USAGE, Util.KEY_PHOTO, Util.KEY_CATEGORY},
                 Util.KEY_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
@@ -69,7 +72,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     public Words getRandomWord() {
         SQLiteDatabase db = this.getReadableDatabase();
         long numRows = DatabaseUtils.queryNumEntries(db, "words");
-        long randomNum = ThreadLocalRandom.current().nextLong(0, numRows);
+        int num = Math.toIntExact(numRows);
+        Random rand = new Random();
+        int randomNum = rand.nextInt(num + 1);
         return getWord(randomNum);
     }
 
