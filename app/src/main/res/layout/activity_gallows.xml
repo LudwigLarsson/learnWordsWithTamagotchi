@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".activities.GallowsActivity">
 
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/game_back"
+        android:layout_centerInParent="true"
+        android:background="@drawable/game_back"
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="315sp"
+        android:layout_height="238sp"
+        android:id="@+id/moon"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/moon1"
+        />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
