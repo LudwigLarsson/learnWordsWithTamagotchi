@@ -13,41 +13,52 @@
         android:theme="@style/Theme.LearnWordsWithTamagotchi"
         tools:targetApi="31">
         <activity
-            android:name=".activities.NewWordActivity"
+            android:name=".activities.ResultActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:label=""
             android:screenOrientation="landscape"
-            android:exported="false" >
+            android:theme="@style/StartActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.NewWordActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.PermutationActivity"
-            android:screenOrientation="landscape"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.GuessActivity"
-            android:screenOrientation="landscape"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.GallowsActivity"
-            android:screenOrientation="landscape"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".activities.HomeActivity"
-            android:screenOrientation="landscape"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,8 +68,8 @@
         <activity
             android:name=".activities.StudiedWordsActivity"
             android:exported="false"
-            android:screenOrientation="landscape"
-            android:label="Choose Word">
+            android:label="Choose Word"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -66,8 +77,8 @@
         <activity
             android:name=".activities.GameListActivity"
             android:exported="false"
-            android:screenOrientation="landscape"
-            android:label="choose Game">
+            android:label="choose Game"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -75,8 +86,8 @@
         <activity
             android:name=".activities.CategoryListActivity"
             android:exported="false"
-            android:screenOrientation="landscape"
-            android:label="Choose Category">
+            android:label="Choose Category"
+            android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
