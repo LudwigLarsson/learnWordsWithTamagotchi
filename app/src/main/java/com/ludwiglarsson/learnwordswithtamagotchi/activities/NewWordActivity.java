@@ -8,8 +8,6 @@ import com.ludwiglarsson.learnwordswithtamagotchi.R;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.Words;
 
-import java.util.ArrayList;
-
 public class NewWordActivity extends AppCompatActivity {
 
     @Override

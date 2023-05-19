@@ -224,5 +224,3 @@ public class HomeActivity extends AppCompatActivity {
     public void onDie() {}
 
 }
-
-// Проблемы: сохранение данных; HomeActivity из говна и палок; секундомер - ?; доделать методы со шкалами, хранением лучшего времени, смерти.

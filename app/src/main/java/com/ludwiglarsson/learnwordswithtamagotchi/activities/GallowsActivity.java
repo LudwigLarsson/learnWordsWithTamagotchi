@@ -13,8 +13,13 @@ import android.widget.TextView;
 import com.google.android.gms.common.util.ArrayUtils;
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
 
+import java.util.concurrent.TimeUnit;
+
+import pl.droidsonroids.gif.GifImageView;
+
 public class GallowsActivity extends AppCompatActivity {
-    public int attemptsCount = 8;
+    public int attemptsCount = 9;
+    public int positions = 1;
 
     @SuppressLint("ResourceType")
     @Override
@@ -101,6 +106,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -140,6 +168,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -179,6 +230,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -218,6 +292,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -257,6 +354,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -296,6 +416,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -335,6 +478,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -374,6 +540,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -412,6 +601,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -451,6 +663,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -490,6 +725,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -529,6 +787,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -568,6 +849,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -607,6 +911,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -646,6 +973,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -685,6 +1035,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -724,6 +1097,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -763,6 +1159,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -802,6 +1221,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -841,6 +1283,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -880,6 +1345,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -919,6 +1407,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -958,6 +1469,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -997,6 +1531,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1036,6 +1593,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1075,6 +1655,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1114,6 +1717,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1153,6 +1779,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1192,6 +1841,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1231,6 +1903,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1270,6 +1965,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1309,6 +2027,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);
@@ -1348,6 +2089,29 @@ public class GallowsActivity extends AppCompatActivity {
                     TextView attempts = (TextView) findViewById(R.id.count);
                     attemptsCount--;
                     attempts.setText(String.valueOf(attemptsCount));
+                    GifImageView moon = (GifImageView) findViewById(R.id.moon);
+                    positions++;
+                    moon.setBackgroundDrawable(null);
+                    switch (positions) {
+                        case 2: moon.setImageResource(R.drawable.moon2);
+                            break;
+                        case 3: moon.setImageResource(R.drawable.moon3);
+                            break;
+                        case 4: moon.setImageResource(R.drawable.moon4);
+                            break;
+                        case 5: moon.setImageResource(R.drawable.moon5);
+                            break;
+                        case 6: moon.setImageResource(R.drawable.moon6);
+                            break;
+                        case 7: moon.setImageResource(R.drawable.moon7);
+                            break;
+                        case 8: moon.setImageResource(R.drawable.moon8);
+                            break;
+                        case 9: moon.setImageResource(R.drawable.moon9);
+                            break;
+                        case 10: moon.setImageResource(R.drawable.moon_end);
+                            break;
+                    }
                     if (attemptsCount <= 0) {
                         Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                         intent.putExtra("result", false);

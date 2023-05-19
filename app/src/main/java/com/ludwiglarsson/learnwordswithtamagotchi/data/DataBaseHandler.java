@@ -9,6 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.NonNull;
 
+import com.ludwiglarsson.learnwordswithtamagotchi.data.Util;
+import com.ludwiglarsson.learnwordswithtamagotchi.data.Words;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
