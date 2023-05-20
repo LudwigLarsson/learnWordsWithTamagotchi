@@ -3,4 +3,6 @@
     <string name="send">Отправить</string>
     <string name="text">Введите имя своего питомца</string>
     <string name="home">Имя: %1$s</string>
+    <string name="d">Д</string>
+    <string name="yu">Ю</string>
 </resources>

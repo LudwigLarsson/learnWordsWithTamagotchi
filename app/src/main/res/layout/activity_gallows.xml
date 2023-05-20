@@ -45,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l2"
+            android:padding="64dp"
             android:layout_marginRight="40sp"
             android:textColor="@color/white"
             android:text="Б"/>
@@ -54,6 +55,7 @@
             android:id="@+id/l3"
             android:layout_marginRight="40sp"
             android:textColor="@color/white"
+            android:padding="64dp"
             android:text="В"/>
         <TextView
             android:layout_width="wrap_content"
@@ -68,7 +70,7 @@
             android:id="@+id/l5"
             android:layout_marginRight="40sp"
             android:textColor="@color/white"
-            android:text="Д"/>
+            android:text="@string/d"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -302,7 +304,7 @@
             android:id="@+id/l32"
             android:layout_marginRight="40sp"
             android:textColor="@color/white"
-            android:text="Ю"/>
+            android:text="@string/yu"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

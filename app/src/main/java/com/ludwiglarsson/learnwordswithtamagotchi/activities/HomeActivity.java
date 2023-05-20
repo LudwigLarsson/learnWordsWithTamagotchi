@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -43,9 +44,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-       // preferences = getPreferences(MODE_PRIVATE);
-       // firstTime = preferences.getBoolean("firstTime", true);
-        if (savedInstanceState != null) {
+       preferences = getPreferences(MODE_PRIVATE);
+       firstTime = preferences.getBoolean("firstTime", true);
+        /*if (savedInstanceState != null) {
             currentTime = savedInstanceState.getLong("currentTime");
             bestTime = savedInstanceState.getLong("bestTime");
             firstTime = savedInstanceState.getBoolean("firstTime");
@@ -54,15 +55,16 @@ public class HomeActivity extends AppCompatActivity {
             scale3 = savedInstanceState.getInt("scale3");
             timeReduceScale1 = savedInstanceState.getInt("timeReduceScale1");
             timeReduceScale2 = savedInstanceState.getInt("timeReduceScale2");
-        }
+        }*/
         if (firstTime) {
             Intent intent = new Intent(HomeActivity.this, StartActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
             firstTime = false;
-            /*preferences = getPreferences(MODE_PRIVATE);
+            preferences = getPreferences(MODE_PRIVATE);
+            Log.d("TAG1", preferences.getBoolean("firstTime", true)+"");
             editor = preferences.edit();
             editor.putBoolean("firstTime", false);
-            editor.commit();*/
+            editor.commit();
         }
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(getResources().getColor(R.color.background));
