@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.content.pm.ActivityInfo;
 
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
+import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
+import com.ludwiglarsson.learnwordswithtamagotchi.data.Words;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -92,6 +94,11 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        DataBaseHandler dataBaseHandler = new DataBaseHandler(HomeActivity.this);
+        dataBaseHandler.addWord(new Words("Капибара", "описание", "подсказки/подсказки/подсказки", "фото", "категория"));
+        dataBaseHandler.addWord(new Words("Вомбат", "описание", "подсказки/подсказки/подсказки", "фото", "категория"));
     }
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {

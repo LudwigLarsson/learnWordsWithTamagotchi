@@ -3,6 +3,7 @@ package com.ludwiglarsson.learnwordswithtamagotchi.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
@@ -21,8 +22,12 @@ public class NewWordActivity extends AppCompatActivity {
         }*/
         DataBaseHandler bd = new DataBaseHandler(this);
         Words word = (Words) bd.getRandomWord();
-        String name = word.getName();
-        String description = word.getDescription();
-        String photo = word.getPhoto();
+        String currName = word.getName();
+        String currDescription = word.getDescription();
+        String currPhoto = word.getPhoto();
+        TextView name = (TextView) findViewById(R.id.name);
+        TextView description = (TextView) findViewById(R.id.description);
+        name.setText(currName);
+        description.setText(currDescription);
     }
 }
