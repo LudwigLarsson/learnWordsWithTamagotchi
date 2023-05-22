@@ -5,7 +5,7 @@
     android:layout_width="450sp"
     android:layout_height="120sp"
     android:background="@drawable/dialog_background"
-    tools:context=".activities.StartActivity">
+    tools:context=".UI.StartActivity">
 
     <Button
         android:id="@+id/exit"

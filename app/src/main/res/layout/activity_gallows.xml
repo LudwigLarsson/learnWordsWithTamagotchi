@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.GallowsActivity">
+    tools:context=".UI.GallowsActivity">
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         android:layout_height="238sp"
         android:id="@+id/moon"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="-20sp"
+        android:layout_marginLeft="-40sp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:background="@drawable/moon1"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:orientation="horizontal"
-        android:layout_marginRight="30sp"
+        android:layout_marginRight="16sp"
         android:layout_centerVertical="true"
         android:layout_above="@+id/linear2"
         android:id="@+id/linear1">
@@ -39,50 +39,55 @@
             android:layout_height="wrap_content"
             android:id="@+id/l1"
             android:textColor="@color/white"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:text="А"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l2"
-            android:padding="64dp"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="Б"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l3"
-            android:layout_marginRight="40sp"
             android:textColor="@color/white"
-            android:padding="64dp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:text="В"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l4"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
             android:textColor="@color/white"
+            android:layout_marginRight="28sp"
             android:text="Г"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l5"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
             android:textColor="@color/white"
+            android:layout_marginRight="28sp"
             android:text="@string/d"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l6"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
             android:textColor="@color/white"
+            android:layout_marginRight="28sp"
             android:text="Е"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l7"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="Ё"/>
     </LinearLayout>
@@ -100,49 +105,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l8"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="Ж"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l9"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="З"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l10"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="И"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l11"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="Й"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l12"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="К"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l13"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="Л"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l14"
-            android:layout_marginRight="40sp"
+            android:padding="6sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
             android:text="М"/>
     </LinearLayout>
@@ -160,49 +172,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l15"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Н"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l16"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="О"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l17"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="П"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l18"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Р"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l19"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
+            android:padding="6sp"
             android:text="С"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l20"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
             android:textColor="@color/white"
+            android:padding="6sp"
             android:text="Т"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l21"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="У"/>
     </LinearLayout>
@@ -220,49 +239,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l22"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Ф"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l23"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Х"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l24"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Ц"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l25"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Ч"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l26"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Ш"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l27"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Щ"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l28"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Ъ"/>
     </LinearLayout>
@@ -272,7 +298,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:layout_marginBottom="30sp"
+        android:layout_marginBottom="16sp"
         android:layout_marginTop="10sp"
         android:layout_alignStart="@+id/linear1"
         android:id="@+id/linear5">
@@ -280,21 +306,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l29"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Ы"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l30"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Ь"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l31"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Э"/>
 
@@ -302,14 +331,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l32"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="@string/yu"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/l33"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="28sp"
+            android:padding="6sp"
             android:textColor="@color/white"
             android:text="Я"/>
     </LinearLayout>
@@ -339,7 +370,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/count"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="6sp"
+        android:layout_marginLeft="6sp"
         android:layout_marginRight="30sp"
         android:layout_alignStart="@+id/linear1"
         android:layout_alignParentRight="true"

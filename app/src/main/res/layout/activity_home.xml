@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.HomeActivity">
-
+    tools:context=".UI.HomeActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -75,7 +74,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="44sp"
-        android:text=""
+        android:text="..."
         android:textColor="#393737"
         android:textSize="14sp" />
 

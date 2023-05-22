@@ -13,7 +13,7 @@
         android:theme="@style/Theme.LearnWordsWithTamagotchi"
         tools:targetApi="31">
         <activity
-            android:name=".activities.ResultActivity"
+            android:name=".UI.ResultActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="false"
             android:label=""
@@ -24,7 +24,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.NewWordActivity"
+            android:name=".UI.NewWordActivity"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
@@ -32,7 +32,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.PermutationActivity"
+            android:name=".UI.PermutationActivity"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
@@ -40,7 +40,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.GuessActivity"
+            android:name=".UI.GuessActivity"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
@@ -48,7 +48,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.GallowsActivity"
+            android:name=".UI.GallowsActivity"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
@@ -56,7 +56,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.HomeActivity"
+            android:name=".UI.HomeActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -66,7 +66,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.StudiedWordsActivity"
+            android:name=".UI.StudiedWordsActivity"
             android:exported="false"
             android:label="Choose Word"
             android:screenOrientation="landscape">
@@ -75,7 +75,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.GameListActivity"
+            android:name=".UI.GameListActivity"
             android:exported="false"
             android:label="choose Game"
             android:screenOrientation="landscape">
@@ -84,7 +84,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.CategoryListActivity"
+            android:name=".UI.CategoryListActivity"
             android:exported="false"
             android:label="Choose Category"
             android:screenOrientation="landscape">
@@ -93,7 +93,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.StartActivity"
+            android:name=".UI.StartActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="false"
             android:label=""

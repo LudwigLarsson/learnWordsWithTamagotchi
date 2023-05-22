@@ -1,4 +1,4 @@
-package com.ludwiglarsson.learnwordswithtamagotchi.activities;
+package com.ludwiglarsson.learnwordswithtamagotchi.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,13 +15,13 @@ public class NewWordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_word);
-
-        /*Bundle extras = getIntent().getExtras();
+        String category = null;
+        Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String category = extras.getString("category");
-        }*/
+            category = extras.getString("category");
+        }
         DataBaseHandler bd = new DataBaseHandler(this);
-        Words word = (Words) bd.getRandomWord();
+        Words word = (Words) bd.getRandomWord(category);
         String currName = word.getName();
         String currDescription = word.getDescription();
         String currPhoto = word.getPhoto();

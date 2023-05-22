@@ -6,34 +6,21 @@ public class Words {
     private String description;
     private String hints;
     private String photo;
-    private String category;
 
-    private int usage;
-
-    public Words(int id, String name, String description, String hints, int usage, String photo, String category) {
+    public Words(int id, String name, String description, String hints, String photo) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.hints = hints;
-        this.usage = usage;
         this.photo = photo;
-        this.category = category;
     }
-    public Words(String name, String description, String hints, int usage, String photo, String category) {
-        this.name = name;
-        this.description = description;
-        this.hints = hints;
-        this.usage = usage;
-        this.photo = photo;
-        this.category = category;
-    }
-    public Words(String name, String description, String hints, String photo, String category) {
+    public Words(String name, String description, String hints, String photo) {
         this.name = name;
         this.description = description;
         this.hints = hints;
         this.photo = photo;
-        this.category = category;
     }
+
     public Words() {}
 
     public int getId() {
@@ -58,19 +45,7 @@ public class Words {
     public void setHints(String hints) {
         this.hints = hints;
     }
-    public int getUsage() {
-        return usage;
-    }
-    public void setUsage(int usage) {
-        this.usage = usage;
-    }
     public String getPhoto(){return photo;}
 
     public void setPhoto(String photo){this.photo = photo;}
-    public String getCategory() {
-        return category;
-    }
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }

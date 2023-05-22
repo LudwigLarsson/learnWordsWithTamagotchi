@@ -1,25 +1,30 @@
-package com.ludwiglarsson.learnwordswithtamagotchi.activities;
+package com.ludwiglarsson.learnwordswithtamagotchi.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.common.util.ArrayUtils;
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
+import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
+import com.ludwiglarsson.learnwordswithtamagotchi.data.Words;
 
-import java.util.concurrent.TimeUnit;
+import java.util.HashSet;
+import java.util.Set;
 
 import pl.droidsonroids.gif.GifImageView;
 
 public class GallowsActivity extends AppCompatActivity {
     public int attemptsCount = 9;
     public int positions = 1;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     @SuppressLint("ResourceType")
     @Override
@@ -27,7 +32,10 @@ public class GallowsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallows);
         //получаем рандомное слово
-        String word = ("Капибара").toLowerCase();
+        DataBaseHandler bd = new DataBaseHandler(this);
+        Words words = (Words) bd.getRandomWord("words");
+        String word = words.getName().toLowerCase();
+        //String word = ("Капибара").toLowerCase();
         int word_length = word.length();
         char[] letters = new char[word_length];
         for (int i = 0; i < word.length(); ++i){

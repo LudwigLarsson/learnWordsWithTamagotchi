@@ -1,4 +1,4 @@
-package com.ludwiglarsson.learnwordswithtamagotchi.activities;
+package com.ludwiglarsson.learnwordswithtamagotchi.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 

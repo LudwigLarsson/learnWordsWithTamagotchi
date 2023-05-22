@@ -1,4 +1,4 @@
-package com.ludwiglarsson.learnwordswithtamagotchi.activities;
+package com.ludwiglarsson.learnwordswithtamagotchi.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.content.pm.ActivityInfo;
 
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
@@ -23,7 +23,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class HomeActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 1;
-    protected String name = "";
+    protected String name = "///";
     protected int currentCondition = 2;
     protected boolean firstTime = true;
     protected long currentTime = 0;
@@ -44,26 +44,23 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-       preferences = getPreferences(MODE_PRIVATE);
-       firstTime = preferences.getBoolean("firstTime", true);
-        /*if (savedInstanceState != null) {
-            currentTime = savedInstanceState.getLong("currentTime");
-            bestTime = savedInstanceState.getLong("bestTime");
-            firstTime = savedInstanceState.getBoolean("firstTime");
-            scale1 = savedInstanceState.getInt("scale1");
-            scale2 = savedInstanceState.getInt("scale2");
-            scale3 = savedInstanceState.getInt("scale3");
-            timeReduceScale1 = savedInstanceState.getInt("timeReduceScale1");
-            timeReduceScale2 = savedInstanceState.getInt("timeReduceScale2");
-        }*/
+        TextView name_view = (TextView) findViewById(R.id.set_name);
+        TextView time_view = (TextView) findViewById(R.id.time_view);
+        preferences = getPreferences(MODE_PRIVATE);
+        firstTime = preferences.getBoolean("firstTime", true);
+        name = preferences.getString("name", "");
+        currentTime = preferences.getLong("currentTime", 1);
+        time_view.setText(String.format("%02d:%02d:%02d:%02d", currentTime / 86400000,
+                (currentTime % 86400000) / 3600000, ((currentTime % 86400000) % 3600000) / 60000, (((currentTime % 86400000) % 3600000) % 60000) / 1000));
+        runTimer();
+        name_view.setText(name);
         if (firstTime) {
             Intent intent = new Intent(HomeActivity.this, StartActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
             firstTime = false;
             preferences = getPreferences(MODE_PRIVATE);
-            Log.d("TAG1", preferences.getBoolean("firstTime", true)+"");
             editor = preferences.edit();
-            editor.putBoolean("firstTime", false);
+            editor.putBoolean("firstTime", firstTime);
             editor.commit();
         }
         View view = this.getWindow().getDecorView();
@@ -99,20 +96,10 @@ public class HomeActivity extends AppCompatActivity {
 
 
         DataBaseHandler dataBaseHandler = new DataBaseHandler(HomeActivity.this);
-        dataBaseHandler.addWord(new Words("Капибара", "описание", "подсказки/подсказки/подсказки", "фото", "категория"));
-        dataBaseHandler.addWord(new Words("Вомбат", "описание", "подсказки/подсказки/подсказки", "фото", "категория"));
-    }
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putLong("currentTime", currentTime);
-        savedInstanceState.putLong("bestTime", bestTime);
-        savedInstanceState.putBoolean("firstTime", firstTime);
-        savedInstanceState.putInt("scale1", scale1);
-        savedInstanceState.putInt("scale2", scale2);
-        savedInstanceState.putInt("scale3", scale3);
-        savedInstanceState.putInt("timeReduceScale1", timeReduceScale1);
-        savedInstanceState.putInt("timeReduceScale2", timeReduceScale2);
+        dataBaseHandler.deleteAll();
+        dataBaseHandler.addWord(new Words("Капибара", "описание", "подсказки/подсказки/подсказки", "фото"), "words");
+        dataBaseHandler.addWord(new Words("Вомбат", "описание", "подсказки/подсказки/подсказки", "фото"), "words");
+        dataBaseHandler.addWord(new Words("Кёльнский собор", "описание", "подсказки/подсказки/подсказки", "фото"), "architecture");
     }
 
     private void runTimer() {
@@ -121,14 +108,13 @@ public class HomeActivity extends AppCompatActivity {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                long days = currentTime / 86400;
-                long hours = currentTime / 3600;
-                long minutes = (currentTime % 3600) / 60;
-                long seconds = currentTime % 60;
-                String time = String.format("%02d:%02d:%02d:%02d", days,
-                        hours, minutes, seconds);
-                timeView.setText(time);
-                currentTime++;
+                currentTime = SystemClock.elapsedRealtime();;
+                timeView.setText(String.format("%02d:%02d:%02d:%02d", currentTime / 86400000,
+                        (currentTime % 86400000) / 3600000, ((currentTime % 86400000) % 3600000) / 60000, (((currentTime % 86400000) % 3600000) % 60000) / 1000));
+                preferences = getPreferences(MODE_PRIVATE);
+                editor = preferences.edit();
+                editor.putLong("currentTime", currentTime);
+                editor.commit();
                 handler.postDelayed(this, 1000);
             }
         });
@@ -215,14 +201,14 @@ public class HomeActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE  && resultCode  == RESULT_OK) {
-            name = data.getStringExtra("name");
+            String name = data.getStringExtra("name");
             TextView name_view = (TextView) findViewById(R.id.set_name);
             name_view.setText(name);
             preferences = getPreferences(MODE_PRIVATE);
+            Log.d("TAG1", preferences.getString("name", ".")+"");
             editor = preferences.edit();
-            editor.putString(name, name_view.getText().toString());
+            editor.putString("name", name);
             editor.commit();
-            runTimer();
         }
     }
     public void getPoints1() {}
