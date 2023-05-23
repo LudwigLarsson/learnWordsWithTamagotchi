@@ -25,7 +25,7 @@ public class CategoryListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CategoryListActivity.this, NewWordActivity.class);
-                //intent.putExtra("category", "professions");
+                intent.putExtra("category", "professions");
                 startActivity(intent);
             }
         });

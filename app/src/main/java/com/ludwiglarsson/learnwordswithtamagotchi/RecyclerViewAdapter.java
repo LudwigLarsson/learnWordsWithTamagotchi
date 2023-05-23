@@ -1,5 +1,6 @@
 package com.ludwiglarsson.learnwordswithtamagotchi;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;

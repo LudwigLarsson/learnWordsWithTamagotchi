@@ -23,12 +23,14 @@ public class ResultActivity extends AppCompatActivity {
         v.setBackgroundResource(android.R.color.transparent);
 
         Intent i = getIntent();
-        boolean res = i.getBooleanExtra("result", true);
+        int res = i.getIntExtra("result", 1);
         TextView message = (TextView) findViewById(R.id.message);
-        if (res) {
-            message.setText("Вы победили!");
-        } else {
+        if (res == 2) {
+            message.setText("Для того, чтобы открыть игру, вы должны пройти не менее пяти слов!");
+        } else if (res == 0) {
             message.setText("Вы проиграли");
+        } else {
+            message.setText("Вы победили!");
         }
 
         Button b = (Button) findViewById(R.id.exit);

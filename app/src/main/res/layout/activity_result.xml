@@ -16,7 +16,7 @@
         android:textSize="10sp"
         android:layout_below="@+id/message"
         android:background="@drawable/buttons"
-        android:backgroundTint="#8C9FCD"
+        android:backgroundTint="@color/buttons"
         android:textColor="@color/smallText"
         android:text="Домой" />
 

@@ -2,7 +2,10 @@ package com.ludwiglarsson.learnwordswithtamagotchi.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
@@ -29,5 +32,17 @@ public class NewWordActivity extends AppCompatActivity {
         TextView description = (TextView) findViewById(R.id.description);
         name.setText(currName);
         description.setText(currDescription);
+        Button exit = (Button) findViewById(R.id.exit1);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewWordActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    public void onBackPressed() {
     }
 }

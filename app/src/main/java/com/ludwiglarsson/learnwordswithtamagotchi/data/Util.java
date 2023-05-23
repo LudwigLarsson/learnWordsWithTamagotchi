@@ -60,10 +60,11 @@ public class Util {
     public static final String KEY6_HINTS = "hints";
     public static final String KEY6_PHOTO = "photo";
 
-    public static final String TABLE7_NAME = "usedWords";
-    public static final String KEY7_ID = "usedWords";
+    public static final String TABLE7_NAME = "used";
+    public static final String KEY7_ID = "used";
     public static final String KEY7_NAME = "name";
     public static final String KEY7_DESCRIPTION = "description";
+    public static final String KEY7_HINTS = "hints";
     public static final String KEY7_PHOTO = "photo";
 
 }

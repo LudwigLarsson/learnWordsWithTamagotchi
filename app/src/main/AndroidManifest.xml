@@ -13,6 +13,14 @@
         android:theme="@style/Theme.LearnWordsWithTamagotchi"
         tools:targetApi="31">
         <activity
+            android:name=".UI.ViewPagerActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".UI.ResultActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="false"

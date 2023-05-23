@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
+import com.ludwiglarsson.learnwordswithtamagotchi.data.Dictionary;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.Words;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -57,6 +58,8 @@ public class HomeActivity extends AppCompatActivity {
         if (firstTime) {
             Intent intent = new Intent(HomeActivity.this, StartActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
+            Intent intent1 = new Intent(HomeActivity.this, ViewPagerActivity.class);
+            startActivity(intent1);
             firstTime = false;
             preferences = getPreferences(MODE_PRIVATE);
             editor = preferences.edit();
@@ -94,12 +97,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
         DataBaseHandler dataBaseHandler = new DataBaseHandler(HomeActivity.this);
-        dataBaseHandler.deleteAll();
-        dataBaseHandler.addWord(new Words("Капибара", "описание", "подсказки/подсказки/подсказки", "фото"), "words");
-        dataBaseHandler.addWord(new Words("Вомбат", "описание", "подсказки/подсказки/подсказки", "фото"), "words");
-        dataBaseHandler.addWord(new Words("Кёльнский собор", "описание", "подсказки/подсказки/подсказки", "фото"), "architecture");
+        Dictionary dict = new Dictionary();
+        dict.words(dataBaseHandler);
     }
 
     private void runTimer() {

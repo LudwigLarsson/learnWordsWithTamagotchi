@@ -5,69 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
+    android:background="@color/background"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <RelativeLayout
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/pic"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30sp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/s"
+            app:riv_corner_radius_top_left="20dp"
+            app:riv_corner_radius_top_right="20dp"
+            app:riv_corner_radius_bottom_left="20dp"
+            app:riv_corner_radius_bottom_right="20dp"/>
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pic"
+            android:text="Слово"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/name"
+            android:layout_marginTop="20sp"
+            android:textColor="@color/smallText"
+            android:textSize="27sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Описание"
+            android:layout_below="@+id/name"
+            android:id="@+id/description"
+            android:textColor="@color/smallText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20sp"
+            android:textSize="14sp" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:layout_below="@+id/description"
+            android:layout_marginTop="30sp"
+            android:text="Пройдено"
+            android:textSize="10sp"
+            android:textColor="@color/smallText"
+            android:background="@drawable/buttons"
+            android:backgroundTint="@color/buttons"
+            android:layout_marginRight="20sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="30sp"
+            android:id="@+id/exit1"/>
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/pic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/s"
-                app:riv_corner_radius_top_left="20dp"
-                app:riv_corner_radius_top_right="20dp" />
-
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:padding="12dp"
-                android:src="@drawable/back" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:orientation="vertical">
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pic"
-                android:paddingHorizontal="10dp"
-                android:text="Слово"
-                android:id="@+id/name"
-                android:textColor="@color/black"
-                android:textSize="27sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="Описание"
-                android:id="@+id/description"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1" />
-
-
-        </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </androidx.core.widget.NestedScrollView>
