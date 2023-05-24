@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,13 +19,13 @@ public class NewWordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_word);
-        String category = null;
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            category = extras.getString("category");
-        }
+        Intent i = getIntent();
+        int id = i.getIntExtra("id", 1);
+        String category = i.getStringExtra("category");
+        Log.d("Tag1", id + "");
+        Log.d("Tag2", category);
         DataBaseHandler bd = new DataBaseHandler(this);
-        Words word = (Words) bd.getRandomWord(category);
+        Words word = (Words) bd.getWord(id, category);
         String currName = word.getName();
         String currDescription = word.getDescription();
         String currPhoto = word.getPhoto();
@@ -32,17 +33,7 @@ public class NewWordActivity extends AppCompatActivity {
         TextView description = (TextView) findViewById(R.id.description);
         name.setText(currName);
         description.setText(currDescription);
-        Button exit = (Button) findViewById(R.id.exit1);
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(NewWordActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
-
-    public void onBackPressed() {
-    }
+    //public void onBackPressed() {
+    //}
 }

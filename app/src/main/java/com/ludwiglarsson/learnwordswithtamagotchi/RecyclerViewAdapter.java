@@ -39,7 +39,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         private TextView word_name;
         private ImageView image;
 
-
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             word_name = itemView.findViewById(R.id.name);
@@ -58,7 +57,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Words w = this.words.get(position);
         ((MyHolder) holder).word_name.setText(w.getName());
-        ((MyHolder) holder).image.setImageBitmap(BitmapFactory.decodeFile(w.getPhoto()));
+        //((MyHolder) holder).image.setImageBitmap(BitmapFactory.decodeFile(w.getPhoto()));
     }
     @Override
     public int getItemCount() {

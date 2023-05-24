@@ -29,6 +29,8 @@ public class ResultActivity extends AppCompatActivity {
             message.setText("Для того, чтобы открыть игру, вы должны пройти не менее пяти слов!");
         } else if (res == 0) {
             message.setText("Вы проиграли");
+        } else if (res == -1) {
+            message.setText("К сожалению, слова в этой категории закончились! Вы освоили тему полностью:)");
         } else {
             message.setText("Вы победили!");
         }

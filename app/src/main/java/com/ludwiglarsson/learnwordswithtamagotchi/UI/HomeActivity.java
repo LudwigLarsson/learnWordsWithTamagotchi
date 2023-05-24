@@ -58,13 +58,19 @@ public class HomeActivity extends AppCompatActivity {
         if (firstTime) {
             Intent intent = new Intent(HomeActivity.this, StartActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
-            Intent intent1 = new Intent(HomeActivity.this, ViewPagerActivity.class);
-            startActivity(intent1);
             firstTime = false;
             preferences = getPreferences(MODE_PRIVATE);
             editor = preferences.edit();
             editor.putBoolean("firstTime", firstTime);
             editor.commit();
+            /*Intent i = getIntent();
+            name = i.getStringExtra("name");
+            name_view.setText("a");
+            Log.d("Tag1", name);
+            preferences = getPreferences(MODE_PRIVATE);
+            editor = preferences.edit();
+            editor.putString("name", name);
+            editor.commit();*/
         }
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(getResources().getColor(R.color.background));
@@ -193,10 +199,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-    public void onChangeScale3() {
-        ProgressBar progressBar3 = (ProgressBar)findViewById(R.id.progressBar3);
-        progressBar3.setProgress(scale3);
-    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -205,11 +207,17 @@ public class HomeActivity extends AppCompatActivity {
             TextView name_view = (TextView) findViewById(R.id.set_name);
             name_view.setText(name);
             preferences = getPreferences(MODE_PRIVATE);
-            Log.d("TAG1", preferences.getString("name", ".")+"");
+            //Log.d("TAG1", preferences.getString("name", ".")+"");
             editor = preferences.edit();
             editor.putString("name", name);
             editor.commit();
+            Intent intent = new Intent(HomeActivity.this, ViewPagerActivity.class);
+            startActivity(intent);
         }
+    }
+    public void onChangeScale3() {
+        ProgressBar progressBar3 = (ProgressBar)findViewById(R.id.progressBar3);
+        progressBar3.setProgress(scale3);
     }
     public void getPoints1() {}
     public void getPoints2() {}

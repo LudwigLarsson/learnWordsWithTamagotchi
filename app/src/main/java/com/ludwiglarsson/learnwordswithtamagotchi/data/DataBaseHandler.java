@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -253,6 +254,18 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 break;
         }
         //db.close();
+    }
+    public int getRandomId(String tableName) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        long numRows = DatabaseUtils.queryNumEntries(db, tableName);
+        //Log.d("Tag3", numRows + "");
+        if (numRows == 0) {
+            return -1;
+        }
+        int num = Math.toIntExact(numRows);
+        Random rand = new Random();
+        int randomNum = rand.nextInt(num + 1);
+        return randomNum;
     }
 
     public Words getRandomWord(String tableName) {

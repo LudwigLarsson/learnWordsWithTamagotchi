@@ -7,7 +7,7 @@
     android:background="@drawable/dialog_background"
     tools:context=".UI.StartActivity">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="30sp"
@@ -34,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="15"
+        android:textColor="@color/smallText"
         android:layout_marginLeft="10sp"
         android:layout_centerVertical="true"/>
 
