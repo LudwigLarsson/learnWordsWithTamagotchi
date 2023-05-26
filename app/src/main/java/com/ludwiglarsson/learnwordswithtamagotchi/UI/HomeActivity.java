@@ -1,7 +1,11 @@
 package com.ludwiglarsson.learnwordswithtamagotchi.UI;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,25 +23,31 @@ import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.Dictionary;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.Words;
 
+import java.time.Duration;
+import java.time.Instant;
+
 import pl.droidsonroids.gif.GifImageView;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity{
     public static final int REQUEST_CODE = 1;
-    protected String name = "///";
+    protected String name = "";
     protected int currentCondition = 2;
     protected boolean firstTime = true;
-    protected long currentTime = 0;
+    protected long start;
     protected long bestTime = 0;
     protected int scale1 = 100;
     protected int scale2 = 100;
-    protected int scale3 = 100;
+    protected int scale3 = 50;
     protected int timeReduceScale1 = 216000;
     protected int timeReduceScale2 = 432000;
     protected final long condition1 = 225;
     protected final long condition2 = 150;
     protected final long condition3 = 75;
     protected final long condition4 = 0;
+    ProgressBar progressBar3;
+    ProgressBar progressBar2;
+    ProgressBar progressBar1;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     @Override
@@ -46,37 +56,46 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         TextView name_view = (TextView) findViewById(R.id.set_name);
-        TextView time_view = (TextView) findViewById(R.id.time_view);
         preferences = getPreferences(MODE_PRIVATE);
         firstTime = preferences.getBoolean("firstTime", true);
         name = preferences.getString("name", "");
-        currentTime = preferences.getLong("currentTime", 1);
-        time_view.setText(String.format("%02d:%02d:%02d:%02d", currentTime / 86400000,
-                (currentTime % 86400000) / 3600000, ((currentTime % 86400000) % 3600000) / 60000, (((currentTime % 86400000) % 3600000) % 60000) / 1000));
-        runTimer();
+        bestTime = preferences.getLong("bestTime", 1);
+        start = preferences.getLong("start", 1);
+        progressBar3 = (ProgressBar)findViewById(R.id.progressBar3);
+        progressBar2 = (ProgressBar)findViewById(R.id.progressBar2);
+        progressBar1 = (ProgressBar)findViewById(R.id.progressBar1);
         name_view.setText(name);
+        if (!firstTime) {
+            scale1 = preferences.getInt("scale1", 1);
+            scale2 = preferences.getInt("scale2", 1);
+            scale3 = preferences.getInt("scale3", 1);
+            long exit = preferences.getLong("exit", 1);
+            long entrance = Instant.now().toEpochMilli();
+            long passedTime = entrance - exit;
+            Log.d("passedtime", passedTime+"");
+            scale1 -= passedTime / timeReduceScale1;
+            scale2 -= passedTime / timeReduceScale2;
+        }
+        progressBar1.setProgress(scale1);
+        progressBar2.setProgress(scale2);
+        progressBar3.setProgress(scale3);
         if (firstTime) {
             Intent intent = new Intent(HomeActivity.this, StartActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
             firstTime = false;
+            start = Instant.now().toEpochMilli();
             preferences = getPreferences(MODE_PRIVATE);
             editor = preferences.edit();
             editor.putBoolean("firstTime", firstTime);
+            editor.putLong("start", start);
             editor.commit();
-            /*Intent i = getIntent();
-            name = i.getStringExtra("name");
-            name_view.setText("a");
-            Log.d("Tag1", name);
-            preferences = getPreferences(MODE_PRIVATE);
-            editor = preferences.edit();
-            editor.putString("name", name);
-            editor.commit();*/
         }
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(getResources().getColor(R.color.background));
         setPhotos();
         onChangeScale1();
         onChangeScale2();
+        onChangeScale3();
         ImageView book = findViewById(R.id.book);
         ImageView shelf = findViewById(R.id.shelf);
         GifImageView space = (GifImageView) findViewById(R.id.space);
@@ -108,35 +127,6 @@ public class HomeActivity extends AppCompatActivity {
         dict.words(dataBaseHandler);
     }
 
-    private void runTimer() {
-        final TextView timeView = (TextView)findViewById(R.id.time_view);
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                currentTime = SystemClock.elapsedRealtime();;
-                timeView.setText(String.format("%02d:%02d:%02d:%02d", currentTime / 86400000,
-                        (currentTime % 86400000) / 3600000, ((currentTime % 86400000) % 3600000) / 60000, (((currentTime % 86400000) % 3600000) % 60000) / 1000));
-                preferences = getPreferences(MODE_PRIVATE);
-                editor = preferences.edit();
-                editor.putLong("currentTime", currentTime);
-                editor.commit();
-                handler.postDelayed(this, 1000);
-            }
-        });
-    }
-    public void onChangeScale1() {
-        ProgressBar progressBar1 = (ProgressBar)findViewById(R.id.progressBar1);
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                progressBar1.setProgress(scale1);
-                scale1--;
-                handler.postDelayed(this, timeReduceScale1);
-            }
-        });
-    }
     public void setPhotos() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -148,7 +138,7 @@ public class HomeActivity extends AppCompatActivity {
         back.requestLayout();
 
         GifImageView gif = (GifImageView) findViewById(R.id.gif);
-        gif.setImageResource(R.drawable.neutral);
+        gif.setImageResource(R.drawable.dead);
         gif.getLayoutParams().height = (int) Math.ceil(height / 2);
         gif.getLayoutParams().width = (int) Math.ceil(height / 2 * 584 / 389);
         gif.requestLayout();
@@ -159,8 +149,8 @@ public class HomeActivity extends AppCompatActivity {
         space.requestLayout();
 
         ImageView table = (ImageView) findViewById(R.id.table);
-        table.getLayoutParams().height = (int) Math.ceil(width / 2 * 520 / 924);
-        table.getLayoutParams().width = (int) Math.ceil(width / 2);
+        table.getLayoutParams().height = (int) Math.ceil(width / 1.5 * 720 / 2000);
+        table.getLayoutParams().width = (int) Math.ceil(width / 1.5);
         table.requestLayout();
 
         ImageView book = (ImageView) findViewById(R.id.book);
@@ -176,28 +166,54 @@ public class HomeActivity extends AppCompatActivity {
     public void onChangePhotos() {
         GifImageView gif = (GifImageView) findViewById(R.id.gif);
         if (currentCondition == 2) {
-            //gif.setImageResource(R.drawable.neutral);
+            gif.setImageResource(R.drawable.happy);
         } else if (currentCondition == 1) {
-            //gif.setImageResource(R.drawable.neutral);
+            gif.setImageResource(R.drawable.neutral);
         } else if (currentCondition == 3) {
-            //gif.setImageResource(R.drawable.neutral);
+            gif.setImageResource(R.drawable.angry);
         } else if (currentCondition == 4) {
-            //gif.setImageResource(R.drawable.neutral);
+            gif.setImageResource(R.drawable.crying);
         } else if (currentCondition == 5) {
-            //gif.setImageResource(R.drawable.neutral);
+            gif.setImageResource(R.drawable.dead);
         }
     }
+    public void onChangeScale1() {
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                progressBar1.setProgress(scale1);
+                scale1--;
+                handler.postDelayed(this, timeReduceScale1);
+                preferences = getPreferences(MODE_PRIVATE);
+                editor = preferences.edit();
+                editor.putInt("scale1", scale1);
+                editor.commit();
+            }
+        });
+    }
     public void onChangeScale2() {
-        ProgressBar progressBar2 = (ProgressBar)findViewById(R.id.progressBar2);
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
                 progressBar2.setProgress(scale2);
+                Log.d("scale2", scale2 + "");
                 scale2--;
                 handler.postDelayed(this, timeReduceScale2);
+                preferences = getPreferences(MODE_PRIVATE);
+                editor = preferences.edit();
+                editor.putInt("scale2", scale2);
+                editor.commit();
             }
         });
+    }
+    public void onChangeScale3() {
+        //progressBar3.setProgress(scale3);
+        preferences = getPreferences(MODE_PRIVATE);
+        editor = preferences.edit();
+        editor.putInt("scale3", scale3);
+        editor.commit();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -211,19 +227,45 @@ public class HomeActivity extends AppCompatActivity {
             editor = preferences.edit();
             editor.putString("name", name);
             editor.commit();
+            name = preferences.getString("name", "");
+            Log.d("name", name);
             Intent intent = new Intent(HomeActivity.this, ViewPagerActivity.class);
             startActivity(intent);
         }
     }
-    public void onChangeScale3() {
-        ProgressBar progressBar3 = (ProgressBar)findViewById(R.id.progressBar3);
-        progressBar3.setProgress(scale3);
+    public void onDie() {
+        long finish = Instant.now().toEpochMilli();
+        long timeElapsed = (start - finish) / 1000;
+        if (timeElapsed > bestTime) {
+            bestTime = timeElapsed;
+            preferences = getPreferences(MODE_PRIVATE);
+            editor = preferences.edit();
+            editor.putLong("bestTime", bestTime);
+            editor.commit();
+        }
     }
-    public void getPoints1() {}
-    public void getPoints2() {}
-    public void getPoints3() {}
-    public void onChangeCondition() {
-    }
-    public void onDie() {}
 
+    @Override
+    protected void onStop() {
+        long exit = Instant.now().toEpochMilli();
+        preferences = getPreferences(MODE_PRIVATE);
+        editor = preferences.edit();
+        editor.putLong("exit", exit);
+        editor.commit();
+        //exit = preferences.getLong("exit", 1);
+        //Log.d("exit", exit +"");
+        super.onStop();
+    }
+
+    /*@Override
+    protected void onDestroy() {
+        long exit = Instant.now().toEpochMilli();
+        preferences = getPreferences(MODE_PRIVATE);
+        editor = preferences.edit();
+        editor.putLong("exit", exit);
+        editor.commit();
+        //Log.d("exit", exit +"");
+        //exit = preferences.getLong("exit", 1);
+        super.onDestroy();
+    }*/
 }

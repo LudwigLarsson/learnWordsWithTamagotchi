@@ -35,6 +35,8 @@
         android:layout_height="wrap_content"
         android:ems="15"
         android:textColor="@color/smallText"
+        android:maxLines="1"
+        android:inputType="textPersonName"
         android:layout_marginLeft="10sp"
         android:layout_centerVertical="true"/>
 

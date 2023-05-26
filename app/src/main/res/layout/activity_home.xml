@@ -20,28 +20,29 @@
         android:id="@+id/table"
         android:layout_marginBottom="-30dp"
         android:background="@drawable/table"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50sp"
         android:layout_alignParentBottom="true"
         android:layout_height="match_parent">
     </ImageView>
+
+    <ImageView
+        android:id="@+id/book"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@+id/gif"
+        android:layout_toRightOf="@+id/gif"
+        android:layout_centerVertical="true"
+        android:background="@drawable/notes"></ImageView>
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/gif"
-        android:layout_centerInParent="true"
+        android:layout_marginLeft="40sp"
+        android:layout_alignStart="@+id/table"
+        android:layout_centerVertical="true"
         />
-
-    <TextView
-        android:id="@+id/time_text"
-        android:text="Возраст:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:textColor="#393737"
-        android:layout_toLeftOf="@+id/time_view">
-    </TextView>
-
 
     <TextView
         android:id="@+id/time_view"
@@ -77,31 +78,6 @@
         android:text="..."
         android:textColor="#393737"
         android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/best_time"
-        android:text="Лучшее время:"
-        android:textColor="@color/smallText"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:layout_toLeftOf="@+id/time_view">
-    </TextView>
-
-    <TextView
-        android:id="@+id/best_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:paddingRight="16dp"
-        android:text="текущее"
-        android:textColor="@color/smallText"
-        android:layout_toEndOf="@+id/best_time"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="8dp"
-        android:textSize="10sp" />
 
     <ProgressBar
         android:id="@+id/progressBar1"
@@ -177,16 +153,6 @@
         android:layout_height="wrap_content">
     </TextView>
 
-    <ImageView
-        android:id="@+id/book"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignRight="@+id/gif"
-        android:layout_alignBottom="@+id/gif"
-        android:layout_marginBottom="-10sp"
-        android:layout_marginRight="-8sp"
-        android:background="@drawable/notes"></ImageView>
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -206,8 +172,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/shelf"></ImageView>
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shelf">
+
+    </ImageView>
 
     <TextView
         android:id="@+id/tv"
