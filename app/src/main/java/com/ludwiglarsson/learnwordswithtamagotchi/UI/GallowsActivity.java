@@ -2,30 +2,22 @@ package com.ludwiglarsson.learnwordswithtamagotchi.UI;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ludwiglarsson.learnwordswithtamagotchi.MyViewModel;
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.Words;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -124,11 +116,9 @@ public class GallowsActivity extends AppCompatActivity {
                             }
                         }
                         if (end) {
-                            /*Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
+                            Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                             intent.putExtra("result", 1);
                             startActivity(intent);
-                            finishAffinity();*/
-                            new AlertDialog.Builder(getApplication()).create().show();
                         }
                     } else {
                         curr1.setTextColor(Color.RED);
@@ -162,7 +152,6 @@ public class GallowsActivity extends AppCompatActivity {
                             Intent intent = new Intent(GallowsActivity.this, ResultActivity.class);
                             intent.putExtra("result", 0);
                             startActivity(intent);
-                            finishAffinity();
                         }
                     }
                     curr1.setOnClickListener(null);

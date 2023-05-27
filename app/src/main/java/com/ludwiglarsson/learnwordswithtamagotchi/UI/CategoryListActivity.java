@@ -3,17 +3,19 @@ package com.ludwiglarsson.learnwordswithtamagotchi.UI;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.DatabaseUtils;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
 import com.ludwiglarsson.learnwordswithtamagotchi.data.DataBaseHandler;
 
-import java.util.Random;
 
 public class CategoryListActivity extends AppCompatActivity {
+    HomeActivity homeActivity;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class CategoryListActivity extends AppCompatActivity {
         ImageView space = (ImageView) findViewById(R.id.space);
         ImageView architecture = (ImageView) findViewById(R.id.architecture);
 
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         DataBaseHandler handler = new DataBaseHandler(this);
         professions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +40,8 @@ public class CategoryListActivity extends AppCompatActivity {
                     intent.putExtra("result", -1);
                     startActivity(intent);
                 } else {
+                    homeActivity = new HomeActivity();
+                    homeActivity.points(25, 1, getApplicationContext());
                     intent = new Intent(CategoryListActivity.this, NewWordActivity.class);
                     intent.putExtra("id", id);
                     intent.putExtra("category", "professions");
@@ -54,6 +59,8 @@ public class CategoryListActivity extends AppCompatActivity {
                     intent.putExtra("result", -1);
                     startActivity(intent);
                 } else {
+                    homeActivity = new HomeActivity();
+                    homeActivity.points(25, 1, getApplicationContext());
                     intent = new Intent(CategoryListActivity.this, NewWordActivity.class);
                     intent.putExtra("id", id);
                     intent.putExtra("category", "inventions");
@@ -71,6 +78,8 @@ public class CategoryListActivity extends AppCompatActivity {
                     intent.putExtra("result", -1);
                     startActivity(intent);
                 } else {
+                    homeActivity = new HomeActivity();
+                    homeActivity.points(25, 1, getApplicationContext());
                     intent = new Intent(CategoryListActivity.this, NewWordActivity.class);
                     intent.putExtra("id", id);
                     intent.putExtra("category", "plants");
@@ -88,6 +97,8 @@ public class CategoryListActivity extends AppCompatActivity {
                     intent.putExtra("result", -1);
                     startActivity(intent);
                 } else {
+                    homeActivity = new HomeActivity();
+                    homeActivity.points(25, 1, getApplicationContext());
                     intent = new Intent(CategoryListActivity.this, NewWordActivity.class);
                     intent.putExtra("id", id);
                     intent.putExtra("category", "animals");
@@ -105,6 +116,8 @@ public class CategoryListActivity extends AppCompatActivity {
                     intent.putExtra("result", -1);
                     startActivity(intent);
                 } else {
+                    homeActivity = new HomeActivity();
+                    homeActivity.points(25, 1, getApplicationContext());
                     intent = new Intent(CategoryListActivity.this, NewWordActivity.class);
                     intent.putExtra("id", id);
                     intent.putExtra("category", "space");
@@ -122,6 +135,8 @@ public class CategoryListActivity extends AppCompatActivity {
                     intent.putExtra("result", -1);
                     startActivity(intent);
                 } else {
+                    homeActivity = new HomeActivity();
+                    homeActivity.points(25, 1, getApplicationContext());
                     intent = new Intent(CategoryListActivity.this, NewWordActivity.class);
                     intent.putExtra("id", id);
                     intent.putExtra("category", "architecture");

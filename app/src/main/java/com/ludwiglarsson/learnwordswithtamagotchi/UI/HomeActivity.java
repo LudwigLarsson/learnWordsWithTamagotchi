@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -36,20 +37,23 @@ public class HomeActivity extends AppCompatActivity{
     protected boolean firstTime = true;
     protected long start;
     protected long bestTime = 0;
-    protected int scale1 = 100;
-    protected int scale2 = 100;
-    protected int scale3 = 50;
+    protected static int scale1 = 100;
+    protected static int scale2 = 100;
+    protected static int scale3 = 50;
     protected int timeReduceScale1 = 216000;
     protected int timeReduceScale2 = 432000;
     protected final long condition1 = 225;
     protected final long condition2 = 150;
     protected final long condition3 = 75;
     protected final long condition4 = 0;
-    ProgressBar progressBar3;
-    ProgressBar progressBar2;
-    ProgressBar progressBar1;
+    int height;
+    int width;
+    static ProgressBar progressBar3;
+    static ProgressBar progressBar2;
+    static ProgressBar progressBar1;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    GifImageView gif;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +65,7 @@ public class HomeActivity extends AppCompatActivity{
         name = preferences.getString("name", "");
         bestTime = preferences.getLong("bestTime", 1);
         start = preferences.getLong("start", 1);
+        currentCondition = preferences.getInt("currentCondition", 1);
         progressBar3 = (ProgressBar)findViewById(R.id.progressBar3);
         progressBar2 = (ProgressBar)findViewById(R.id.progressBar2);
         progressBar1 = (ProgressBar)findViewById(R.id.progressBar1);
@@ -72,9 +77,18 @@ public class HomeActivity extends AppCompatActivity{
             long exit = preferences.getLong("exit", 1);
             long entrance = Instant.now().toEpochMilli();
             long passedTime = entrance - exit;
-            Log.d("passedtime", passedTime+"");
+            Log.d("passedtime", passedTime + "");
             scale1 -= passedTime / timeReduceScale1;
             scale2 -= passedTime / timeReduceScale2;
+            if (scale1 < 0) {
+                scale1 = 0;
+            }
+            if (scale2 < 0) {
+                scale2 = 0;
+            }
+            if (scale3 < 0) {
+                scale3 = 0;
+            }
         }
         progressBar1.setProgress(scale1);
         progressBar2.setProgress(scale2);
@@ -130,18 +144,35 @@ public class HomeActivity extends AppCompatActivity{
     public void setPhotos() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int height = displayMetrics.heightPixels;
-        int width = displayMetrics.widthPixels;
+        height = displayMetrics.heightPixels;
+        width = displayMetrics.widthPixels;
 
         ImageView back = (ImageView) findViewById(R.id.back);
         back.getLayoutParams().width = (int) Math.ceil(height * 16 / 9);
         back.requestLayout();
 
-        GifImageView gif = (GifImageView) findViewById(R.id.gif);
-        gif.setImageResource(R.drawable.dead);
+        preferences = getPreferences(MODE_PRIVATE);
+        currentCondition = preferences.getInt("currentCondition", 1);
+
+        gif = (GifImageView) findViewById(R.id.gif);
         gif.getLayoutParams().height = (int) Math.ceil(height / 2);
         gif.getLayoutParams().width = (int) Math.ceil(height / 2 * 584 / 389);
         gif.requestLayout();
+        switch (currentCondition) {
+            case 2: gif.setImageResource(R.drawable.neutral);
+                break;
+            case 3: gif.setImageResource(R.drawable.angry);
+                break;
+            case 4: gif.setImageResource(R.drawable.crying2);
+                break;
+            case 5: gif.setImageResource(R.drawable.dead1);
+                break;
+            case 1: gif.setImageResource(R.drawable.happy);
+                gif.getLayoutParams().height = (int) Math.ceil(height / 2);
+                gif.getLayoutParams().width = (int) Math.ceil(height / 2 * 584 / 389);
+                gif.requestLayout();
+                break;
+        }
 
         GifImageView space = (GifImageView) findViewById(R.id.space);
         space.getLayoutParams().height = (int) Math.ceil((width - height * 16 / 9) + (height * 16 / 9 * 80 / 590) / 1.5 * 388 / 215);
@@ -163,57 +194,138 @@ public class HomeActivity extends AppCompatActivity{
         shelf.getLayoutParams().width = (int) Math.ceil(height / 3.5 * 924 / 520);
         shelf.requestLayout();
     }
-    public void onChangePhotos() {
-        GifImageView gif = (GifImageView) findViewById(R.id.gif);
-        if (currentCondition == 2) {
-            gif.setImageResource(R.drawable.happy);
-        } else if (currentCondition == 1) {
-            gif.setImageResource(R.drawable.neutral);
-        } else if (currentCondition == 3) {
-            gif.setImageResource(R.drawable.angry);
-        } else if (currentCondition == 4) {
-            gif.setImageResource(R.drawable.crying);
-        } else if (currentCondition == 5) {
-            gif.setImageResource(R.drawable.dead);
+
+    public void onChangeCondition(){
+        preferences = getPreferences(MODE_PRIVATE);
+        scale1 = preferences.getInt("scale1", 1);
+        scale2 = preferences.getInt("scale2", 1);
+        scale3 = preferences.getInt("scale3", 1);
+        int amount = scale1 + scale2 + scale3;
+        if (amount < condition1 && amount >= condition2) {
+            currentCondition = 2;
+        } else if (amount < condition2 && amount >= condition3) {
+            currentCondition = 3;
+        } else if (amount < condition3 && amount > condition4) {
+            currentCondition = 4;
+        } else if (amount == condition4) {
+            currentCondition = 5;
+        } else if (amount >= condition1) {
+            currentCondition = 1;
+        }
+        editor = preferences.edit();
+        editor.putInt("currentCondition", currentCondition);
+        editor.commit();
+
+        gif = (GifImageView) findViewById(R.id.gif);
+        gif.getLayoutParams().height = (int) Math.ceil(height / 2);
+        gif.getLayoutParams().width = (int) Math.ceil(height / 2 * 584 / 389);
+        gif.requestLayout();
+        switch (currentCondition) {
+            case 2:
+                gif.setImageResource(R.drawable.neutral);
+                break;
+            case 3:
+                gif.setImageResource(R.drawable.angry);
+                break;
+            case 4:
+                gif.setImageResource(R.drawable.crying2);
+                break;
+            case 5:
+                gif.setImageResource(R.drawable.dead1);
+                break;
+            case 1:
+                gif.setImageResource(R.drawable.happy);
+                gif.getLayoutParams().height = (int) Math.ceil(height / 2);
+                gif.getLayoutParams().width = (int) Math.ceil(height / 2 * 584 / 389);
+                gif.requestLayout();
+                break;
         }
     }
+    public void points(int points, int scale, Context context) {
+        preferences = context.getSharedPreferences("preferences", MODE_PRIVATE);
+        editor = preferences.edit();
+        if (scale == 1) {
+            scale1 += points;
+            if (scale1 > 100) {
+                scale1 = 100;
+            } else if (scale1 < 0) {
+                scale1 = 0;
+            }
+            editor.putInt("scale1", scale1);
+            progressBar1.setProgress(scale1);
+        } else if (scale == 2) {
+            scale2 += points;
+            if (scale2 > 100) {
+                scale2 = 100;
+            } else if (scale2 < 0) {
+                scale2 = 0;
+            }
+            editor.putInt("scale2", scale2);
+            progressBar2.setProgress(scale2);
+        } else if (scale == 3) {
+            scale3 += points;
+            if (scale3 > 100) {
+                scale3 = 100;
+            } else if (scale3 < 0) {
+                scale3 = 0;
+            }
+            editor.putInt("scale3", scale3);
+            progressBar3.setProgress(scale3);
+        }
+        editor.commit();
+    }
+
     public void onChangeScale1() {
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
+               // preferences = getPreferences(MODE_PRIVATE);
+               // scale1 = preferences.getInt("scale1", 1);
                 progressBar1.setProgress(scale1);
                 scale1--;
+                if (scale1 < 0) {
+                    scale1 = 0;
+                }
                 handler.postDelayed(this, timeReduceScale1);
-                preferences = getPreferences(MODE_PRIVATE);
                 editor = preferences.edit();
                 editor.putInt("scale1", scale1);
                 editor.commit();
+                //onChangeCondition();
             }
         });
     }
     public void onChangeScale2() {
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
+        final Handler handler1 = new Handler();
+        handler1.post(new Runnable() {
             @Override
             public void run() {
+                //preferences = getPreferences(MODE_PRIVATE);
+                //scale2 = preferences.getInt("scale2", 1);
                 progressBar2.setProgress(scale2);
-                Log.d("scale2", scale2 + "");
+                //Log.d("scale2", scale2 + "");
                 scale2--;
-                handler.postDelayed(this, timeReduceScale2);
-                preferences = getPreferences(MODE_PRIVATE);
+                if (scale2 < 0) {
+                    scale2 = 0;
+                }
+                handler1.postDelayed(this, timeReduceScale2);
                 editor = preferences.edit();
                 editor.putInt("scale2", scale2);
                 editor.commit();
+                onChangeCondition();
             }
         });
     }
     public void onChangeScale3() {
-        //progressBar3.setProgress(scale3);
+        progressBar3.setProgress(scale3);
+        if (scale3 < 0) {
+            scale3 = 0;
+        }
         preferences = getPreferences(MODE_PRIVATE);
         editor = preferences.edit();
         editor.putInt("scale3", scale3);
         editor.commit();
+        //onChangeCondition();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -257,15 +369,4 @@ public class HomeActivity extends AppCompatActivity{
         super.onStop();
     }
 
-    /*@Override
-    protected void onDestroy() {
-        long exit = Instant.now().toEpochMilli();
-        preferences = getPreferences(MODE_PRIVATE);
-        editor = preferences.edit();
-        editor.putLong("exit", exit);
-        editor.commit();
-        //Log.d("exit", exit +"");
-        //exit = preferences.getLong("exit", 1);
-        super.onDestroy();
-    }*/
 }

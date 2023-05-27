@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -13,6 +15,9 @@ import android.widget.TextView;
 import com.ludwiglarsson.learnwordswithtamagotchi.R;
 
 public class ResultActivity extends AppCompatActivity {
+    HomeActivity homeActivity;
+
+    private SharedPreferences sharedPref;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
@@ -22,16 +27,22 @@ public class ResultActivity extends AppCompatActivity {
         View v = getWindow().getDecorView();
         v.setBackgroundResource(android.R.color.transparent);
 
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
         Intent i = getIntent();
         int res = i.getIntExtra("result", 1);
         TextView message = (TextView) findViewById(R.id.message);
         if (res == 2) {
             message.setText("Для того, чтобы открыть игру, вы должны пройти не менее пяти слов!");
         } else if (res == 0) {
+            homeActivity = new HomeActivity();
+            homeActivity.points(-10, 3, getApplicationContext());
             message.setText("Вы проиграли");
         } else if (res == -1) {
             message.setText("К сожалению, слова в этой категории закончились! Вы освоили тему полностью:)");
         } else {
+            homeActivity = new HomeActivity();
+            homeActivity.points(-10, 3, getApplicationContext());
             message.setText("Вы победили!");
         }
 
@@ -41,6 +52,7 @@ public class ResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ResultActivity.this, HomeActivity.class);
                 startActivity(intent);
+                //finishAffinity();
             }
         });
     }
