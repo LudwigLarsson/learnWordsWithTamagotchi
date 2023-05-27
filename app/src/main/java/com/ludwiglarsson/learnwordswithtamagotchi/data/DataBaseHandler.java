@@ -104,7 +104,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.delete(Util.TABLE4_NAME, null, null);
         db.delete(Util.TABLE5_NAME, null, null);
         db.delete(Util.TABLE6_NAME, null, null);
-        //db.delete(Util.TABLE7_NAME, null, null);
+        db.delete(Util.TABLE7_NAME, null, null);
         //db.close();
     }
 
@@ -242,6 +242,11 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         int num = Math.toIntExact(numRows);
         Random rand = new Random();
         int randomNum = rand.nextInt(num + 1);
+        /*Words word = getWord(randomNum, tableName);
+        if (tableName != "used") {
+            deleteWord(randomNum, tableName);
+            addWord(word, "used");
+        }*/
         return randomNum;
     }
 

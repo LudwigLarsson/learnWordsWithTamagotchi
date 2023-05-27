@@ -107,6 +107,9 @@ public class HomeActivity extends AppCompatActivity{
             editor.putInt("scale2", scale2);
             editor.putInt("scale3", scale3);
             editor.commit();
+            DataBaseHandler dataBaseHandler = new DataBaseHandler(HomeActivity.this);
+            Dictionary dict = new Dictionary();
+            dict.words(dataBaseHandler);
         }
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(getResources().getColor(R.color.background));
@@ -140,9 +143,6 @@ public class HomeActivity extends AppCompatActivity{
             }
         });
 
-        DataBaseHandler dataBaseHandler = new DataBaseHandler(HomeActivity.this);
-        Dictionary dict = new Dictionary();
-        dict.words(dataBaseHandler);
     }
 
     public void setPhotos() {
