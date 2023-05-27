@@ -22,7 +22,7 @@
         app:dotsColor="@color/violet"
         android:layout_alignParentBottom="true"
         app:dotsCornerRadius="8dp"
-        app:dotsSize="12dp"
+        app:dotsSize="10dp"
         app:dotsSpacing="4dp"
         app:dotsWidthFactor="2.0"
         app:progressMode="true"

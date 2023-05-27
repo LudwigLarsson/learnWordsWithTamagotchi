@@ -28,6 +28,15 @@ public class ResultActivity extends AppCompatActivity {
         v.setBackgroundResource(android.R.color.transparent);
 
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        Button b = (Button) findViewById(R.id.exit);
+        b.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResultActivity.this, HomeActivity.class);
+                startActivity(intent);
+                //finishAffinity();
+            }
+        });
 
         Intent i = getIntent();
         int res = i.getIntExtra("result", 1);
@@ -40,21 +49,13 @@ public class ResultActivity extends AppCompatActivity {
             message.setText("Вы проиграли");
         } else if (res == -1) {
             message.setText("К сожалению, слова в этой категории закончились! Вы освоили тему полностью:)");
+        } else if (res == -5) {
+            message.setText("К сожалению, ваш тамагочи умер");
         } else {
             homeActivity = new HomeActivity();
-            homeActivity.points(-10, 3, getApplicationContext());
+            homeActivity.points(10, 3, getApplicationContext());
             message.setText("Вы победили!");
         }
-
-        Button b = (Button) findViewById(R.id.exit);
-        b.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ResultActivity.this, HomeActivity.class);
-                startActivity(intent);
-                //finishAffinity();
-            }
-        });
     }
     @Override
     public void onBackPressed() {

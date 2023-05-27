@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity{
     protected long bestTime = 0;
     protected static int scale1 = 100;
     protected static int scale2 = 100;
-    protected static int scale3 = 50;
+    protected static int scale3 = 24;
     protected int timeReduceScale1 = 216000;
     protected int timeReduceScale2 = 432000;
     protected final long condition1 = 225;
@@ -53,6 +53,7 @@ public class HomeActivity extends AppCompatActivity{
     static ProgressBar progressBar1;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    SharedPreferences preferences1;
     GifImageView gif;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +103,9 @@ public class HomeActivity extends AppCompatActivity{
             editor = preferences.edit();
             editor.putBoolean("firstTime", firstTime);
             editor.putLong("start", start);
+            editor.putInt("scale1", scale1);
+            editor.putInt("scale2", scale2);
+            editor.putInt("scale3", scale3);
             editor.commit();
         }
         View view = this.getWindow().getDecorView();
@@ -166,6 +170,7 @@ public class HomeActivity extends AppCompatActivity{
             case 4: gif.setImageResource(R.drawable.crying2);
                 break;
             case 5: gif.setImageResource(R.drawable.dead1);
+                onDie();
                 break;
             case 1: gif.setImageResource(R.drawable.happy);
                 gif.getLayoutParams().height = (int) Math.ceil(height / 2);
@@ -232,6 +237,7 @@ public class HomeActivity extends AppCompatActivity{
                 break;
             case 5:
                 gif.setImageResource(R.drawable.dead1);
+                onDie();
                 break;
             case 1:
                 gif.setImageResource(R.drawable.happy);
@@ -242,37 +248,42 @@ public class HomeActivity extends AppCompatActivity{
         }
     }
     public void points(int points, int scale, Context context) {
-        preferences = context.getSharedPreferences("preferences", MODE_PRIVATE);
-        editor = preferences.edit();
+        //preferences1 = context.getSharedPreferences("preferences1", MODE_PRIVATE);
+        //editor = preferences1.edit();
         if (scale == 1) {
+            //scale1 = preferences1.getInt("scale1", 1);
             scale1 += points;
+            Log.d("scale1", scale1+"");
             if (scale1 > 100) {
                 scale1 = 100;
             } else if (scale1 < 0) {
                 scale1 = 0;
             }
-            editor.putInt("scale1", scale1);
+            //editor.putInt("scale1", scale1);
             progressBar1.setProgress(scale1);
         } else if (scale == 2) {
+            //scale2 = preferences1.getInt("scale2", 1);
             scale2 += points;
             if (scale2 > 100) {
                 scale2 = 100;
             } else if (scale2 < 0) {
                 scale2 = 0;
             }
-            editor.putInt("scale2", scale2);
+            //editor.putInt("scale2", scale2);
             progressBar2.setProgress(scale2);
         } else if (scale == 3) {
+            //scale3 = preferences1.getInt("scale3", 1);
             scale3 += points;
             if (scale3 > 100) {
                 scale3 = 100;
             } else if (scale3 < 0) {
                 scale3 = 0;
             }
-            editor.putInt("scale3", scale3);
+            //editor.putInt("scale3", scale3);
             progressBar3.setProgress(scale3);
+            Log.d("scale3", progressBar3.getProgress()+"");
         }
-        editor.commit();
+        //editor.commit();
     }
 
     public void onChangeScale1() {
@@ -280,10 +291,10 @@ public class HomeActivity extends AppCompatActivity{
         handler.post(new Runnable() {
             @Override
             public void run() {
-               // preferences = getPreferences(MODE_PRIVATE);
-               // scale1 = preferences.getInt("scale1", 1);
-                progressBar1.setProgress(scale1);
+                preferences = getPreferences(MODE_PRIVATE);
+                //scale1 = preferences.getInt("scale1", 1);
                 scale1--;
+                progressBar1.setProgress(scale1);
                 if (scale1 < 0) {
                     scale1 = 0;
                 }
@@ -300,8 +311,8 @@ public class HomeActivity extends AppCompatActivity{
         handler1.post(new Runnable() {
             @Override
             public void run() {
-                //preferences = getPreferences(MODE_PRIVATE);
-                //scale2 = preferences.getInt("scale2", 1);
+                preferences = getPreferences(MODE_PRIVATE);
+                scale2 = preferences.getInt("scale2", 1);
                 progressBar2.setProgress(scale2);
                 //Log.d("scale2", scale2 + "");
                 scale2--;
@@ -348,13 +359,20 @@ public class HomeActivity extends AppCompatActivity{
     public void onDie() {
         long finish = Instant.now().toEpochMilli();
         long timeElapsed = (start - finish) / 1000;
+        preferences = getPreferences(MODE_PRIVATE);
+        editor = preferences.edit();
         if (timeElapsed > bestTime) {
             bestTime = timeElapsed;
-            preferences = getPreferences(MODE_PRIVATE);
-            editor = preferences.edit();
             editor.putLong("bestTime", bestTime);
-            editor.commit();
         }
+        editor.putBoolean("firstTime", true);
+        editor.putInt("scale1", 100);
+        editor.putInt("scale2", 100);
+        editor.putInt("scale3", 24);
+        editor.putInt("currentCondition", 2);
+        editor.putString("name", "");
+        editor.putInt("timeReduceScale1", timeReduceScale1 - 500);
+        editor.putInt("timeReduceScale2", timeReduceScale1 - 1000);
     }
 
     @Override

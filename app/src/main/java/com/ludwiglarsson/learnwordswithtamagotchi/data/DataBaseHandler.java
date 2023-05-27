@@ -26,14 +26,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_WORDS_TABLE = "CREATE TABLE " + Util.TABLE_NAME + " ("
-                + Util.KEY_ID + " INTEGER PRIMARY KEY, "
-                + Util.KEY_NAME + " TEXT, "
-                + Util.KEY_DESCRIPTION + " TEXT, "
-                + Util.KEY_HINTS + " TEXT, "
-                + Util.KEY_PHOTO + " TEXT " + " );";
-
-        sqLiteDatabase.execSQL(CREATE_WORDS_TABLE);
 
         String CREATE_PLANTS_TABLE = "CREATE TABLE " + Util.TABLE1_NAME + " ("
                 + Util.KEY1_ID + " INTEGER PRIMARY KEY, "
@@ -101,12 +93,11 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Util.TABLE_NAME + ";");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Util.TABLE1_NAME + ";");
         onCreate(sqLiteDatabase);
     }
     public void deleteAll(){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(Util.TABLE_NAME, null, null);
         db.delete(Util.TABLE1_NAME, null, null);
         db.delete(Util.TABLE2_NAME, null, null);
         db.delete(Util.TABLE3_NAME, null, null);
@@ -122,13 +113,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         switch (tableName) {
-            case "words":
-                contentValues.put(Util.KEY_NAME, word.getName());
-                contentValues.put(Util.KEY_DESCRIPTION, word.getDescription());
-                contentValues.put(Util.KEY_HINTS, word.getHints());
-                contentValues.put(Util.KEY_PHOTO, word.getPhoto());
-                db.insert(Util.TABLE_NAME, null, contentValues);
-                break;
             case "plants":
                 contentValues.put(Util.KEY1_NAME, word.getName());
                 contentValues.put(Util.KEY1_DESCRIPTION, word.getDescription());
@@ -186,10 +170,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
         switch (tableName) {
-            case "words":
-                cursor = db.query(Util.TABLE_NAME, new String[]{Util.KEY_ID, Util.KEY_NAME, Util.KEY_DESCRIPTION, Util.KEY_HINTS, Util.KEY_PHOTO},
-                        Util.KEY_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
-                break;
             case "plants":
                 cursor = db.query(Util.TABLE1_NAME, new String[]{Util.KEY1_ID, Util.KEY1_NAME, Util.KEY1_DESCRIPTION, Util.KEY1_HINTS, Util.KEY1_PHOTO},
                         Util.KEY1_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
@@ -228,9 +208,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     public void deleteWord(int id, String tableName) {
         SQLiteDatabase db = this.getWritableDatabase();
         switch (tableName) {
-            case "words":
-                db.delete(Util.TABLE_NAME, Util.KEY_ID + "=?", new String[]{String.valueOf(id)});
-                break;
             case "plants":
                 db.delete(Util.TABLE1_NAME, Util.KEY1_ID + "=?", new String[]{String.valueOf(id)});
                 break;

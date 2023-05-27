@@ -9,54 +9,37 @@
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/game1"
-            android:layout_width="180sp"
-            android:layout_height="180sp"
+            android:layout_width="250sp"
+            android:layout_height="150sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="40sp"
-            android:src="@drawable/s"
+            android:src="@drawable/gallow"
             app:riv_corner_radius="20dp" />
 
         <TextView
             android:layout_width="180sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/game1"
-            android:layout_marginLeft="40sp"
-            android:text="Это программа сдохни или умри">
+            android:layout_alignStart="@+id/game1"
+            android:text="Виселица">
         </TextView>
         <TextView
             android:layout_width="180sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/game2"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="40sp"
-            android:text="Угадай слово">
-        </TextView>
-        <TextView
-            android:layout_width="180sp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/game3"
-            android:layout_marginRight="40sp"
-            android:layout_alignParentRight="true"
-            android:text="Перестановки">
+            android:layout_alignStart="@+id/game2"
+            android:text="Подсказки">
         </TextView>
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/game2"
-            android:layout_width="180sp"
-            android:layout_height="180sp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/s"
-            app:riv_corner_radius="20dp"/>
-
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/game3"
-            android:layout_width="180sp"
-            android:layout_height="180sp"
-            android:layout_centerVertical="true"
+            android:layout_width="250sp"
+            android:layout_height="150sp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40sp"
-            android:src="@drawable/s"
+            android:layout_centerVertical="true"
+            android:src="@drawable/hints"
             app:riv_corner_radius="20dp"/>
-
 
 </RelativeLayout>

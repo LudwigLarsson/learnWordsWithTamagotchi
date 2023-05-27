@@ -21,7 +21,6 @@ public class GameListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_list);
         ImageView one = (ImageView) findViewById(R.id.game1);
         ImageView two = (ImageView) findViewById(R.id.game2);
-        ImageView three = (ImageView) findViewById(R.id.game3);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         one.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,15 +37,6 @@ public class GameListActivity extends AppCompatActivity {
                 homeActivity = new HomeActivity();
                 homeActivity.points(15, 2, getApplicationContext());
                 Intent intent = new Intent(GameListActivity.this, GuessActivity.class);
-                startActivity(intent);
-            }
-        });
-        three.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                homeActivity = new HomeActivity();
-                homeActivity.points(15, 2, getApplicationContext());
-                Intent intent = new Intent(GameListActivity.this, PermutationActivity.class);
                 startActivity(intent);
             }
         });

@@ -4,15 +4,6 @@ public class Util {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "wordsDB";
 
-
-    public static final String TABLE_NAME = "words";
-    public static final String KEY_ID = "words";
-    public static final String KEY_NAME = "name";
-    public static final String KEY_DESCRIPTION = "description";
-    public static final String KEY_HINTS = "hints";
-    public static final String KEY_PHOTO = "photo";
-
-
     public static final String TABLE1_NAME = "plants";
     public static final String KEY1_ID = "plants";
     public static final String KEY1_NAME = "name";

@@ -18,7 +18,7 @@
         android:background="@drawable/buttons"
         android:backgroundTint="@color/buttons"
         android:textColor="@color/smallText"
-        android:text="Домой" />
+        android:text="Ок" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,5 +29,29 @@
         android:textColor="@color/smallText"
         android:layout_height="wrap_content">
     </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text=""
+        android:id="@+id/age"
+        android:layout_below="@+id/message"
+        android:layout_marginTop="8sp"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/smallText"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text=""
+        android:layout_marginRight="4sp"
+        android:layout_toLeftOf="@+id/age"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="8sp"
+        android:textColor="@color/smallText"
+        android:layout_height="wrap_content">
+    </TextView>
+
 
 </RelativeLayout>

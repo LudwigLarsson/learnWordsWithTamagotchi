@@ -15,6 +15,50 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="10sp"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/professions"
+                android:layout_width="300sp"
+                android:layout_height="200sp"
+                android:layout_marginLeft="20sp"
+                android:layout_gravity="left"
+                android:layout_marginRight="20sp"
+                android:src="@drawable/professions"
+                app:riv_corner_radius="20dp" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/professions"
+                android:layout_below="@+id/professions"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
+                android:text="Профессии"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/inventions"
+                android:layout_width="300sp"
+                android:layout_height="200sp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20sp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/inventions"
+                app:riv_corner_radius="20dp" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/inventions"
+                android:layout_below="@+id/inventions"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
+                android:text="Изобретения"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
             android:layout_height="wrap_content">
 
             <com.makeramen.roundedimageview.RoundedImageView
@@ -22,7 +66,7 @@
                 android:layout_width="300sp"
                 android:layout_height="200sp"
                 android:layout_gravity="center"
-                android:src="@drawable/s"
+                android:src="@drawable/plants"
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="20sp"
                 app:riv_corner_radius="20dp" />
@@ -32,6 +76,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/plants"
                 android:layout_below="@+id/plants"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
                 android:text="Растения">
             </TextView>
 
@@ -42,7 +88,7 @@
                 android:layout_marginRight="20sp"
                 android:layout_gravity="center"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/s"
+                android:src="@drawable/animals"
                 app:riv_corner_radius="20dp" />
 
             <TextView
@@ -50,12 +96,15 @@
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/animals"
                 android:layout_below="@+id/plants"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
                 android:text="Животные">
             </TextView>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginBottom="10sp"
             android:layout_height="wrap_content">
 
             <com.makeramen.roundedimageview.RoundedImageView
@@ -65,7 +114,7 @@
                 android:layout_marginLeft="20sp"
                 android:layout_gravity="left"
                 android:layout_marginRight="20sp"
-                android:src="@drawable/s"
+                android:src="@drawable/space"
                 app:riv_corner_radius="20dp" />
 
             <TextView
@@ -73,6 +122,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/space"
                 android:layout_below="@+id/space"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
                 android:text="Космос">
             </TextView>
 
@@ -83,7 +134,7 @@
                 android:layout_marginRight="20sp"
                 android:layout_gravity="right"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/s"
+                android:src="@drawable/architecture"
                 app:riv_corner_radius="20dp" />
 
             <TextView
@@ -91,46 +142,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/architecture"
                 android:layout_below="@+id/architecture"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="10sp"
                 android:text="Архитектура"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/professions"
-                android:layout_width="300sp"
-                android:layout_height="200sp"
-                android:layout_marginLeft="20sp"
-                android:layout_gravity="left"
-                android:layout_marginRight="20sp"
-                android:src="@drawable/s"
-                app:riv_corner_radius="20dp" />
-
-            <TextView
-                android:layout_width="300sp"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/professions"
-                android:layout_below="@+id/professions"
-                android:text="Профессии"/>
-
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/inventions"
-                android:layout_width="300sp"
-                android:layout_height="200sp"
-                android:layout_gravity="right"
-                android:layout_marginRight="20sp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/s"
-                app:riv_corner_radius="20dp" />
-
-            <TextView
-                android:layout_width="300sp"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/inventions"
-                android:layout_below="@+id/inventions"
-                android:text="Изобретения"/>
         </RelativeLayout>
     </LinearLayout>
 

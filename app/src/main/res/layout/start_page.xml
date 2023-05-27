@@ -13,9 +13,9 @@
         android:layout_height="180sp"
         android:adjustViewBounds="true"
         android:background="@drawable/logo"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10sp"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20sp"
+        android:layout_centerVertical="true"
         app:riv_corner_radius="20sp"
         tools:src="@drawable/s" />
 
@@ -23,11 +23,14 @@
         android:textSize="18sp"
         android:layout_marginTop="20sp"
         android:textColor="@color/smallText"
-        android:layout_below="@+id/images"
         android:id="@+id/texts"
-        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@+id/images"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:layout_centerVertical="true"
         android:text="Lorem ipsum dolor sit amet consectetur. Scelerisque facilisi ullamcorper fermentum mattis dolor sed blandit etiam. Lobortis lectus donec libero risus sapien mus. Varius semper tortor id aliquam porttitor aliquam. Tellus pharetra pellentesque ultrices amet cras pulvinar. Varius eu lobortis mauris massa leo. Proin amet adipiscing tincidunt viverra eu amet cras"
-        android:layout_width="300sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 </RelativeLayout>

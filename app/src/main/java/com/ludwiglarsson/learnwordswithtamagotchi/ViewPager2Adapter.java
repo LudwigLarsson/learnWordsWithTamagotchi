@@ -15,8 +15,8 @@ public class ViewPager2Adapter extends RecyclerView.Adapter<ViewPager2Adapter.Vi
 
     // Array of images
     // Adding images from drawable folder
-    private int[] images = {R.drawable.s, R.drawable.s, R.drawable.s, R.drawable.s};
-    private String[] texts = {"Смотрите объявления других людей", "Создавайте свой профиль", "Размещайте свои объявления", "Сохраняйте в избранное"};
+    private int[] images = {R.drawable.first, R.drawable.second, R.drawable.third, R.drawable.fourth};
+    private String[] texts = {"Добро пожаловать! В этом приложении вы будете познавать мир вместе со своим тамагочи", "Для того, чтобы о нём позаботиться, вы можете изучать новые слова и повторять их, ведь они пригодятся вам в играх", "Игры помогут запомнить пройденный материал и тоже улучшат здоровье тамагочи", "Постарайтесь поддерживать здоровье тамагочи как можно дольше!"};
     private Context ctx;
 
     // Constructor of our ViewPager2Adapter class
